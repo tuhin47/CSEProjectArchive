@@ -281,7 +281,7 @@ p {
 #banner {
   width: 691px;
   height: 299px;
-  background: url(../images/bannerfans.jpg) no-repeat left top;
+  /*background: url(../images/bannerfans.jpg) no-repeat left top;*/
 }
 
 #banner h2 {
