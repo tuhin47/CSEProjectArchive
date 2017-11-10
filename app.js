@@ -11,6 +11,7 @@ var subjects = require('./routes/subjects');
 var batches = require('./routes/batches');
 var contact = require('./routes/contact');
 var projects = require('./routes/projects');
+var search = require('./routes/search');
 
 
 
@@ -34,6 +35,7 @@ app.use('/subjects',subjects);
 app.use('/batches',batches);
 app.use('/projects',projects);
 app.use('/contact',contact);
+app.use('/search',search);
 
 
 
