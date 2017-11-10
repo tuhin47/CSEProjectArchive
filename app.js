@@ -12,7 +12,16 @@ var batches = require('./routes/batches');
 var contact = require('./routes/contact');
 var projects = require('./routes/projects');
 var search = require('./routes/search');
+var upload = require('./routes/upload');
 
+
+var mongo = require('mongodb');
+var mongoose= require('mongoose');
+var url=require('url');
+//var sleep=require('sleep');
+
+mongoose.connect('mongodb://localhost/cseprojects');
+var db = mongoose.connection;
 
 
 var app = express();
@@ -36,6 +45,7 @@ app.use('/batches',batches);
 app.use('/projects',projects);
 app.use('/contact',contact);
 app.use('/search',search);
+app.use('/upload',upload);
 
 
 
