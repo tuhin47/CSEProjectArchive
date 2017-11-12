@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var UserSchema = mongoose.Schema({
 	  reg: {
 		type: String,
+		unique:true,
 		index:true
 	},
 	name: {
@@ -18,10 +19,10 @@ var UserSchema = mongoose.Schema({
   git:{
     type:String
   },
-  linkedin{
+  linkedin:{
     type: String
   }
 
 });
 
-var User = module.exports = mongoose.model('User', UserSchema,'users');
+var Users = module.exports = mongoose.model('Users', UserSchema,'users');

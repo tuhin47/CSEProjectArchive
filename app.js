@@ -15,14 +15,14 @@ var search = require('./routes/search');
 var upload = require('./routes/upload');
 var addUser = require('./routes/addUser');
 
-//
-// var mongo = require('mongodb');
-// var mongoose= require('mongoose');
-// var url=require('url');
-// //var sleep=require('sleep');
-//
-// mongoose.connect('mongodb://localhost/cseprojects');
-// var db = mongoose.connection;
+
+ var mongo = require('mongodb');
+ var mongoose= require('mongoose');
+ var url=require('url');
+ //var sleep=require('sleep');
+
+ mongoose.connect('mongodb://localhost/cseprojects');
+ var db = mongoose.connection;
 
 
 var app = express();
