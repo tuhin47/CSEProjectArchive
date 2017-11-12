@@ -6,7 +6,24 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
+var subjects = require('./routes/subjects');
+var batches = require('./routes/batches');
+var contact = require('./routes/contact');
+var projects = require('./routes/projects');
+var search = require('./routes/search');
+var upload = require('./routes/upload');
+var addUser = require('./routes/addUser');
+
+
+ var mongo = require('mongodb');
+ var mongoose= require('mongoose');
+ var url=require('url');
+ //var sleep=require('sleep');
+
+ mongoose.connect('mongodb://localhost/cseprojects');
+ var db = mongoose.connection;
+
 
 var app = express();
 
@@ -23,7 +40,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+// app.use('/users', users);
+app.use('/subjects',subjects);
+app.use('/batches',batches);
+app.use('/projects',projects);
+app.use('/contact',contact);
+app.use('/search',search);
+app.use('/upload',upload);
+app.use('/addUser',addUser);
+app.use('/adduser',addUser);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,5 +69,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+console.log("Port:3000");
+
 
 module.exports = app;
