@@ -11,7 +11,18 @@ var subjects = require('./routes/subjects');
 var batches = require('./routes/batches');
 var contact = require('./routes/contact');
 var projects = require('./routes/projects');
+var search = require('./routes/search');
+var upload = require('./routes/upload');
+var addUser = require('./routes/addUser');
 
+
+ var mongo = require('mongodb');
+ var mongoose= require('mongoose');
+ var url=require('url');
+ //var sleep=require('sleep');
+
+ mongoose.connect('mongodb://localhost/cseprojects');
+ var db = mongoose.connection;
 
 
 var app = express();
@@ -34,6 +45,10 @@ app.use('/subjects',subjects);
 app.use('/batches',batches);
 app.use('/projects',projects);
 app.use('/contact',contact);
+app.use('/search',search);
+app.use('/upload',upload);
+app.use('/addUser',addUser);
+app.use('/adduser',addUser);
 
 
 
@@ -54,5 +69,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+console.log("Port:3000");
+
 
 module.exports = app;
