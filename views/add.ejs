@@ -5,11 +5,25 @@
   <title>Add</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+
+
   <!-- Website CSS style -->
   <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"> -->
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/addpic.css" type="text/css" media="all">
+
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/cufon-replace.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
+
 
 </head>
 
@@ -22,20 +36,14 @@
         <nav>
           <ul>
             <li><a href="/index" class="m1">Home Page</a></li>
-            <li ><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
             <li><a href="/batches" class="m3">Batches</a></li>
             <li><a href="/projects" class="m4">Projects</a></li>
             <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
           </ul>
         </nav>
+        
 
-        <form action="#" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="#">Search</a></div>
-          </fieldset>
-        </form>
       </div>
     </header>
     <div class="container">
@@ -52,10 +60,53 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
+      <form action="/upload/data" method="POST" class="form-horizontal">
+        <section id="addContent">
+          <%include partials/addUser.ejs%>
+        </section>
+        <section id="addPic">
+          <!-- <image id="profileImage" src="http://lorempixel.com/100/100" /> -->
+          <div class="profile">
+            <div class="photo">
+              <input type="file" accept="image/*">
+              <div class="photo__helper">
+                <div class="photo__frame">
+                  <canvas class="photo__canvas"></canvas>
+                  <div class="message is-empty">
+                    <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                    <p class="message--mobile">Tap here to select your picture.</p>
+                  </div>
+                  <div class="message is-loading">
+                    <i class="fa fa-2x fa-spin fa-spinner"></i>
+                  </div>
+                  <div class="message is-dragover">
+                    <i class="fa fa-2x fa-cloud-upload"></i>
+                    <p>Drop your photo</p>
+                  </div>
+                  <div class="message is-wrong-file-type">
+                    <p>Only images allowed.</p>
+                    <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                    <p class="message--mobile">Tap here to select your picture.</p>
+                  </div>
+                  <div class="message is-wrong-image-size">
+                    <p>Your photo must be larger than 350px.</p>
+                  </div>
+                </div>
+              </div>
 
-      <section id="content">
-  <%include partials/addUser.ejs%>
-      </section>
+              <div class="photo__options hide">
+                <div class="photo__zoom">
+                  <input required type="range" class="zoom-handler">
+                </div><a href="javascript:;" class="remove"><i class="fa fa-trash"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
+      <!-- <div class="controls">
+        <input type="file" name="imgUploader" onclick="image()" />
+
+      </div> -->
 
 
     </div>
