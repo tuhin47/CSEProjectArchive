@@ -305,7 +305,7 @@ p {
 }
 
 a {
-  color: #ff7b01;
+  color: #blue;
   outline: none;
 }
 
@@ -342,6 +342,7 @@ h3 {
   line-height: 1.2em;
   text-transform: uppercase;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 h4 {
