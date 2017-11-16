@@ -45,6 +45,7 @@ router.post('/data', function(req, res) {
         linkedin: linkedin
 
       });
+      console.log(user);
       user.save(function(err, results) {
         console.log(results._id);
       });
