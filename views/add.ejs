@@ -15,13 +15,13 @@
   <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-  <!-- <link rel="stylesheet" href="css/addpic.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/addpic.css" type="text/css" media="all">
 
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
-  <script type="text/javascript" src="js/script.js"></script> -->
+  <script type="text/javascript" src="js/script.js"></script>
 
 
 
@@ -60,10 +60,14 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
-
+      <form action="/upload/data" method="POST" class="form-horizontal">
         <section id="addContent">
           <%include partials/addUser.ejs%>
         </section>
+        <section id="addPic">
+          <%include partials/addPic.ejs%>
+        </section>
+      </form>
     </div>
   </div>
   <footer>
