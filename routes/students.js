@@ -5,5 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('students');
 });
+router.get('/tada', function(req, res, next) {
+  res.render('students');
+});
 
 module.exports = router;
