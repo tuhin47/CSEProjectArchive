@@ -8,11 +8,20 @@ var db = mongoose.connection;
 var Users = require('../models/user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Users.find(function(err,results){
-    if (err) return console.error(err);
-    console.log(results);
-    res.render('batches',{results});
-  });
+  res.render('students');
+});
+router.get('/:reg', function(req, res, next) {
+  console.log(req.params.reg);
+  Users.find({
+      reg: req.params.reg
+    },
+    function(err, results) {
+      if (err) return console.error(err);
+      console.log(results);
+      res.render('students', {
+        results
+      });
+    });
 
 
 });
