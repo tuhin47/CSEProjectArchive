@@ -14,15 +14,18 @@ var projects = require('./routes/projects');
 var search = require('./routes/search');
 var upload = require('./routes/upload');
 var addUser = require('./routes/addUser');
+var students = require('./routes/students');
+var demopic = require('./routes/demopic');
 
 
- var mongo = require('mongodb');
- var mongoose= require('mongoose');
- var url=require('url');
- //var sleep=require('sleep');
 
- mongoose.connect('mongodb://localhost/cseprojects');
- var db = mongoose.connection;
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+var url = require('url');
+//var sleep=require('sleep');
+
+mongoose.connect('mongodb://localhost/cseprojects');
+var db = mongoose.connection;
 
 
 var app = express();
@@ -35,20 +38,27 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
 // app.use('/users', users);
-app.use('/subjects',subjects);
-app.use('/batches',batches);
-app.use('/projects',projects);
-app.use('/contact',contact);
-app.use('/search',search);
-app.use('/upload',upload);
-app.use('/addUser',addUser);
-app.use('/adduser',addUser);
+app.use('/subjects', subjects);
+app.use('/batches', batches);
+app.use('/projects', projects);
+app.use('/contact', contact);
+app.use('/search', search);
+app.use('/upload', upload);
+app.use('/addUser', addUser);
+app.use('/adduser', addUser);
+app.use('/students', students);
+app.use('/demopic',demopic);
+
+app.use('/students',express.static(path.join(__dirname, 'public')));
 
 
 
