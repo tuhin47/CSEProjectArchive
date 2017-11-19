@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var UserSchema = mongoose.Schema({
 	  reg: {
 		type: String,
-		unique:true,
 		index:true
 	},
 	name: {

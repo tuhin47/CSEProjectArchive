@@ -54,7 +54,7 @@ app.use('/upload', upload);
 app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
-//app.use('/students',express.static(path.join(__dirname, 'public')));
+app.use('/students',express.static(path.join(__dirname, 'public')));
 
 
 

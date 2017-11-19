@@ -66,23 +66,23 @@
             <tbody>
               <tr>
                 <td>Name :</td>
-                <td>Mr DOE</td>
+                <td><%=results[0].name%></td>
+              </tr>
+              <tr>
+                <td>Registration Number:</td>
+                <td><%=results[0].reg%></td>
               </tr>
               <tr>
                 <td>Email :</td>
-                <td>doe@domain.com</td>
-              </tr>
-              <tr>
-                <td>Designation :</td>
-                <td>Student</td>
+                <td><%=results[0].email%></td>
               </tr>
               <tr>
                 <td>Git :</td>
-                <td><a href="https://www.github.com">github.com/doe</a></td>
+                <td><a href="https://www.github.com"><%=results[0].git%></a></td>
               </tr>
               <tr>
                 <td>LinkedIn :</td>
-                <td><a href="http://www.linkedin.com">linkedin.com/doe</a></td>
+                <td><a href="http://www.linkedin.com"><%=results[0].linkedin%></a></td>
               </tr>
 
             </tbody>

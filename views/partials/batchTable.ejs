@@ -14,55 +14,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project 7.5</td>
-          <td>Win 95+ / OSX.2+</td>
-          <td class="center">-</td>
-          <td class="center">-</td>
-        </tr>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project 8.0</td>
-          <td>Win 95+ / OSX.2+</td>
-          <td class="center">-</td>
-          <td class="center">-</td>
-        </tr>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project 8.5</td>
-          <td>Win 95+ / OSX.2+</td>
-          <td class="center">-</td>
-          <td class="center">-</td>
-        </tr>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project 9.0</td>
-          <td>Win 95+ / OSX.3+</td>
-          <td class="center">-</td>
-          <td class="center">-</td>
-        </tr>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project 9.2</td>
-          <td>Win 88+ / OSX.3+</td>
-          <td class="center">-</td>
-          <td class="center">-</td>
-        </tr>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project 9.5</td>
-          <td>Win 88+ / OSX.3+</td>
-          <td><a href="/students/tada">tada</a></td>
-          <td class="center">-</td>
-        </tr>
-        <tr class="gradeA">
-          <td>2013</td>
-          <td>Project for Wii</td>
-          <td>Wii</td>
-          <td class="center">-</td>
-          <td class="center">-</td>
-        </tr>
+        <% for(var i=0;i<results.length;i++){ %>
+          <tr>
+            <td>
+              <%=results[i].session%>
+            </td>
+            <td>
+              <%= results[i].name %>
+            </td>
+            <td>
+              <%= results[i].name %>
+            </td>
+            <td>
+              <a href="students/<%= results[i].reg %>">
+                <%= results[i].reg %>
+              </a>
+            </td>
+
+            <td>
+              <%= results[i].name %>
+            </td>
+          </tr>
+
+          <%}%>
       </tbody>
     </table>
   </div>
