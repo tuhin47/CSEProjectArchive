@@ -6,23 +6,64 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-
-
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <!-- Website CSS style -->
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"> -->
-  <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
+
+  <style>
+    .cropit-preview {
+      background-color: #f8f8f8;
+      background-size: cover;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-top: 7px;
+      width: 250px;
+      height: 250px;
+
+    }
+
+    .cropit-preview-image-container {
+      cursor: move;
+    }
+
+    .image-size-label {
+      margin-top: 10px;
+    }
+
+
+    element.style {
+      transform-origin: left top 0px;
+      will-change: transform;
+      transform: translate(0px, 0px) scale(1) rotate(0deg);
+    }
+
+    input,
+    .export {
+      display: block;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/addpic.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
 
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/jquery.cropit.js"></script>
+  <script type="text/javascript" src="js/jquery.cropit.js"></script>
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="js/jquery.cropit.js"></script>
+
 
 
 </head>
@@ -60,14 +101,16 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
-      <form action="/upload/data" method="POST" enctype="multipart/form-data"  class="form-horizontal">
+      <form action="/upload/data" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <section id="addContent">
           <%include partials/addUser.ejs%>
         </section>
         <section id="addPic">
           <%include partials/addPic.ejs%>
+          <!-- <input name="propic" type="file" > -->
         </section>
       </form>
+
     </div>
   </div>
   <footer>
@@ -79,6 +122,25 @@
   </footer>
   <script type="text/javascript">
     Cufon.now();
+  </script>
+  <script>
+    $(function() {
+      $('.image-editor').cropit({
+        imageState: {
+          src: 'http://lorempixel.com/500/400/',
+        },
+      });
+      $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+      });
+      $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+      });
+      $('.export').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        window.open(imageData);
+      });
+    });
   </script>
 
 

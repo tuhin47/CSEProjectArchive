@@ -35,11 +35,11 @@ conn.once("open", function() {
     fs.createReadStream("./uploads/" + req.file.filename)
       .on("end", function() {
         fs.unlink("./uploads/" + req.file.filename, function(err) {
-          res.send("success")
-        })
+          res.send("success");
+        });
       })
       .on("err", function() {
-        res.send("Error uploading image")
+        res.send("Error uploading image");
       })
       .pipe(writestream);
   });

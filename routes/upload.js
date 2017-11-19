@@ -69,11 +69,11 @@ conn.once("open", function() {
             fs.createReadStream("./uploads/" + req.file.filename)
               .on("end", function() {
                 fs.unlink("./uploads/" + req.file.filename, function(err) {
-                  //res.send("success")
+                console.log("success");
                 });
               })
               .on("err", function() {
-                //  res.send("Error uploading image")
+                  console.log("Error uploading image");
               })
               .pipe(writestream);
           }
@@ -86,24 +86,6 @@ conn.once("open", function() {
 
   });
 
-  router.post('/data', upload.single('propic'), function(req, res, next) {
-    var writestream = gfs.createWriteStream({
-      filename: req.file.originalname
-    });
-    //
-    // //pipe multer's temp file /uploads/filename into the stream we created above. On end deletes the temporary file.
-    fs.createReadStream("./uploads/" + req.file.filename)
-      .on("end", function() {
-        fs.unlink("./uploads/" + req.file.filename, function(err) {
-          console.log("success");
-        });
-      })
-      .on("err", function() {
-        console.log("Error uploading image");
-      })
-      .pipe(writestream);
-
-  });
 
 });
 router.get("/:filename", function(req, res) {

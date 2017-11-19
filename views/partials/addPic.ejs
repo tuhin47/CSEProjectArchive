@@ -1,30 +1,34 @@
-<section id="addPic">
-  <div id="image-cropper">
-    <!-- This is where the preview image is displayed -->
-    <div class="cropit-preview "></div>
+<div class="image-editor">
 
-    <!-- This range input controls zoom -->
-    <!-- You can add additional elements here, e.g. the image icons -->
-    <input type="range" class="cropit-image-zoom-input" />
+  <div class="cropit-preview"></div>
+  <!-- <div class="image-size-label">
+    Resize image
+  </div> -->
+  <!-- <input type="range" class="cropit-image-zoom-input"> -->
+  <input name="propic" type="file" class="cropit-image-input">
+  <!--
+  <button class="rotate-ccw">Rotate counterclockwise</button>
+  <button class="rotate-cw">Rotate clockwise</button> -->
 
-    <!-- This is where user selects new image -->
-    <input name="propic" type="file" class="cropit-image-input " />
+</div>
 
-    <!-- The cropit- classes above are needed
-       so cropit can identify these elements -->
-  </div>
-  <input type="submit" value="submit">
-</section>
-<script type="text/javascript">
-$('#image-cropper').cropit();
 
-// In the demos I'm passing in an imageState option
-// so it renders an image by default:
-// $('#image-cropper').cropit({ imageState: { src: { imageSrc } } });
-
-// Exporting cropped image
-$('.download-btn').click(function() {
-  var imageData = $('#image-cropper').cropit('export');
-  window.open(imageData);
-});
+<script>
+  $(function() {
+    $('.image-editor').cropit({
+      imageState: {
+        src: 'img/1.jpg',
+      },
+    });
+    $('.rotate-cw').click(function() {
+      $('.image-editor').cropit('rotateCW');
+    });
+    $('.rotate-ccw').click(function() {
+      $('.image-editor').cropit('rotateCCW');
+    });
+    $('.export').click(function() {
+      var imageData = $('.image-editor').cropit('export');
+      window.open(imageData);
+    });
+  });
 </script>
