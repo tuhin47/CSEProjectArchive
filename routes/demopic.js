@@ -21,7 +21,7 @@ conn.once("open", function() {
   gfs = Grid(conn.db);
   router.get("/", function(req, res) {
     //renders a multipart/form-data form
-    res.render("add");
+    res.render("demopic");
   });
 
   //second parameter is multer middleware.
