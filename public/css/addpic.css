@@ -1,3 +1,12 @@
+
+
+.cropit-preview {
+  /* You can specify preview size in CSS */
+  width: 300px;
+  height: 300px;
+}
+
+
 .multiple-borders {
   height: auto;
   margin-top: 20px;

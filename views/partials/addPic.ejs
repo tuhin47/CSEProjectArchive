@@ -1,4 +1,30 @@
 <section id="addPic">
-  <input type="file" name="propic">
+  <div id="image-cropper">
+    <!-- This is where the preview image is displayed -->
+    <div class="cropit-preview "></div>
+
+    <!-- This range input controls zoom -->
+    <!-- You can add additional elements here, e.g. the image icons -->
+    <input type="range" class="cropit-image-zoom-input" />
+
+    <!-- This is where user selects new image -->
+    <input name="propic" type="file" class="cropit-image-input " />
+
+    <!-- The cropit- classes above are needed
+       so cropit can identify these elements -->
+  </div>
   <input type="submit" value="submit">
 </section>
+<script type="text/javascript">
+$('#image-cropper').cropit();
+
+// In the demos I'm passing in an imageState option
+// so it renders an image by default:
+// $('#image-cropper').cropit({ imageState: { src: { imageSrc } } });
+
+// Exporting cropped image
+$('.download-btn').click(function() {
+  var imageData = $('#image-cropper').cropit('export');
+  window.open(imageData);
+});
+</script>
