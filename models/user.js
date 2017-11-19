@@ -20,7 +20,10 @@ var UserSchema = mongoose.Schema({
   },
   linkedin:{
     type: String
-  }
+  },
+	propic :{
+		type:String
+	}
 
 });
 

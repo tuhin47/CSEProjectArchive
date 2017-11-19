@@ -15,6 +15,9 @@ var search = require('./routes/search');
 var upload = require('./routes/upload');
 var addUser = require('./routes/addUser');
 var students = require('./routes/students');
+var demopic = require('./routes/demopic');
+
+
 
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
@@ -30,7 +33,6 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,6 +56,8 @@ app.use('/upload', upload);
 app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
+app.use('/demopic',demopic);
+
 app.use('/students',express.static(path.join(__dirname, 'public')));
 
 
