@@ -8,6 +8,22 @@ Grid.mongo = mongoose.mongo;
 
 var Users = require('../models/user');
 
+function parsingGitorLinkin(input) {
+  var output='';
+  for(var i=input.length-1;i>=0;i--){
+    if(input.charAt(i)==='/') break;
+    else output+=input.charAt(i);
+  }
+   input =output;
+    output='';
+  for( i=input.length-1;i>=0;i--){
+    if(input.charAt(i)==='/') break;
+    else output+=input.charAt(i);
+  }
+  console.log(output);
+  return output;
+}
+
 exports.dataUpload = function(req, res, next) {
   gfs = Grid(conn.db);
   console.log('---------------------------->>>>in upload/data post');
@@ -15,8 +31,8 @@ exports.dataUpload = function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
   var session = req.body.session;
-  var git = req.body.git;
-  var linkedin = req.body.linkedin;
+  var git = parsingGitorLinkin(req.body.git);
+  var linkedin = parsingGitorLinkin(req.body.linkedin);
   var propic =null;
   if(req.file)
   propic = reg + ".pic";
