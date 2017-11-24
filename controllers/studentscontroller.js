@@ -7,7 +7,10 @@ exports.data = function(req, res, next) {
       reg: req.params.reg
     },
     function(err, results) {
-      if (err) return console.error(err);
+      if (err)   throw err;
+      if (results.toString()==='') {
+        res.redirect('/');
+      }
       console.log(results);
       res.render('students', {
         results

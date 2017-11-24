@@ -95,7 +95,7 @@ exports.photofetch =   function(req, res) {
     filename: req.params.filename
   });
   readstream.on("error", function(err) {
-    res.send("No image found with that title");
+    console.log("No image found with that title");
   });
   readstream.pipe(res);
 };
