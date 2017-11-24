@@ -3,7 +3,7 @@ var router = express.Router();
 var students = require('../controllers/studentscontroller');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('students');
+  res.redirect('/batches');
 });
 router.get('/:reg', students.data);
 
