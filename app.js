@@ -15,7 +15,7 @@ var search = require('./routes/search');
 var upload = require('./routes/upload');
 var addUser = require('./routes/addUser');
 var students = require('./routes/students');
-var admin = require ('./routes/admin');
+var admin = require('./routes/admin');
 var demopic = require('./routes/demopic');
 
 
@@ -32,7 +32,9 @@ var db = mongoose.connection;
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [path.join(__dirname, 'views'),
+  path.join(__dirname, 'views/students')
+]);
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -57,11 +59,11 @@ app.use('/upload', upload);
 app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
-app.use('/admin',admin);
+app.use('/admin', admin);
 
-app.use('/demopic',demopic);
+app.use('/demopic', demopic);
 
-app.use('/students',express.static(path.join(__dirname, 'public')));
+app.use('/students', express.static(path.join(__dirname, 'public')));
 
 
 
