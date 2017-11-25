@@ -15,6 +15,7 @@ var search = require('./routes/search');
 var upload = require('./routes/upload');
 var addUser = require('./routes/addUser');
 var students = require('./routes/students');
+var admin = require ('./routes/admin');
 var demopic = require('./routes/demopic');
 
 
@@ -56,6 +57,8 @@ app.use('/upload', upload);
 app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
+app.use('/admin',admin);
+
 app.use('/demopic',demopic);
 
 app.use('/students',express.static(path.join(__dirname, 'public')));
@@ -80,7 +83,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-console.log("Port:3000");
 
 
 module.exports = app;
