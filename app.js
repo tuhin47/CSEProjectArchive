@@ -64,6 +64,7 @@ app.use('/admin', admin);
 app.use('/demopic', demopic);
 
 app.use('/students', express.static(path.join(__dirname, 'public')));
+app.use('/students/update', express.static(path.join(__dirname, 'public')));
 
 
 

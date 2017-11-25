@@ -1,5 +1,3 @@
-
-
 var Users = require('../models/user');
 exports.data = function(req, res, next) {
   console.log(req.params.reg);
@@ -7,12 +5,30 @@ exports.data = function(req, res, next) {
       reg: req.params.reg
     },
     function(err, results) {
-      if (err)   throw err;
-      if (results.toString()==='') {
+      if (err) throw err;
+      if (results.toString() === '') {
         res.redirect('/');
       }
       console.log(results);
       res.render('students', {
+        results
+      });
+    });
+
+};
+
+exports.updatedata = function(req, res, next) {
+  console.log(req.params.reg);
+  Users.find({
+      reg: req.params.reg
+    },
+    function(err, results) {
+      if (err) throw err;
+      if (results.toString() === '') {
+        res.redirect('/');
+      }
+      console.log(results);
+      res.render('editstudent', {
         results
       });
     });

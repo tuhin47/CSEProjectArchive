@@ -7,4 +7,6 @@ router.get('/', function(req, res, next) {
 });
 router.get('/:reg', students.data);
 
+router.get('/update/:reg',students.updatedata);
+
 module.exports = router;
