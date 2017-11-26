@@ -12,8 +12,13 @@ var storage = multer.diskStorage({
   }
 });
 
+var limits = {
+  fileSize: 5 * 1024 * 1024
+};
+
 var upload = multer({
-  storage: storage
+  storage: storage,
+  limits: limits
 });
 
 var datas = require('../controllers/uploadcontroller');
