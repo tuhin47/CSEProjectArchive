@@ -103,11 +103,87 @@
       </aside>
       <form action="/upload/data" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <section id="addContent">
-          <%include partials/addUser.ejs%>
+          <div class="widget-box">
+            <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+              <h3>Student-info</h3>
+            </div>
+            <div class="widget-content nopadding">
+
+
+              <div class="control-group">
+                <label class="control-label">Registration Number:</label>
+                <div class="controls">
+                  <input required type="number" name="reg" class="span3" min=2000000000 max=2025000000 placeholder="201XXXXXXX" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Full Name :</label>
+                <div class="controls">
+                  <input required type="text" name="name" class="span3" placeholder="Full name" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Academic Session :</label>
+                <div class="controls">
+                  <select name="session" class="span2">
+
+                        <option value="2013">2013-14</option>
+                        <option value="2014">2014-15</option>
+                        <option value="2015">2015-16</option>
+                        <option value="2016">2016-17</option>
+                      </select>
+
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Email :</label>
+                <div class="controls">
+                  <input required type="email" name="email" class="span3" placeholder="Email" />
+                </div>
+              </div>
+
+
+              <div class="control-group">
+                <label class="control-label">Git Account:</label>
+                <div class="controls">
+                  <input type="text" class="span3" name="git" value="https://github.com/"  />
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Linkedin Account:</label>
+                <div class="controls">
+                  <input type="text" class="span3" name="linkedin" placeholder="www.linkedin.com/" />
+                </div>
+              </div>
+
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+
+
+
+            </div>
+          </div>
+
         </section>
         <section id="addPic">
-          <%include partials/addPic.ejs%>
-          <!-- <input name="propic" type="file" > -->
+          <div class="image-editor">
+
+            <div class="cropit-preview"></div>
+            <!-- <div class="image-size-label">
+            Resize image
+          </div> -->
+            <!-- <input type="range" class="cropit-image-zoom-input"> -->
+            <input name="propic" type="file" class="cropit-image-input">
+            <!--
+          <button class="rotate-ccw">Rotate counterclockwise</button>
+          <button class="rotate-cw">Rotate clockwise</button> -->
+
+          </div>
+
         </section>
       </form>
 
@@ -123,6 +199,28 @@
   <script type="text/javascript">
     Cufon.now();
   </script>
+
+  <script>
+  /*add pic script*/
+    $(function() {
+      $('.image-editor').cropit({
+        imageState: {
+          src: 'img/1.jpg',
+        },
+      });
+      $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+      });
+      $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+      });
+      $('.export').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        window.open(imageData);
+      });
+    });
+  </script>
+
   <script>
     $(function() {
       $('.image-editor').cropit({

@@ -33,7 +33,8 @@ var app = express();
 
 // view engine setup
 app.set('views', [path.join(__dirname, 'views'),
-  path.join(__dirname, 'views/students')
+  path.join(__dirname, 'views/students'),
+  path.join(__dirname, 'views/addform')
 ]);
 app.set('view engine', 'ejs');
 
@@ -45,7 +46,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 app.use('/', index);
@@ -63,8 +64,11 @@ app.use('/admin', admin);
 
 app.use('/demopic', demopic);
 
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/students', express.static(path.join(__dirname, 'public')));
 app.use('/students/update', express.static(path.join(__dirname, 'public')));
+
 
 
 
