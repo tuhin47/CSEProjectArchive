@@ -15,6 +15,7 @@ var search = require('./routes/search');
 var upload = require('./routes/upload');
 var addUser = require('./routes/addUser');
 var students = require('./routes/students');
+var admin = require('./routes/admin');
 var demopic = require('./routes/demopic');
 
 
@@ -31,7 +32,11 @@ var db = mongoose.connection;
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+
+app.set('views', [path.join(__dirname, 'views'),
+  path.join(__dirname, 'views/students'),
+  path.join(__dirname,'views/addform')
+]);
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -42,7 +47,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 app.use('/', index);
@@ -56,9 +61,17 @@ app.use('/upload', upload);
 app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
-app.use('/demopic',demopic);
+app.use('/admin', admin);
 
-app.use('/students',express.static(path.join(__dirname, 'public')));
+app.use('/demopic', demopic);
+
+var options = {
+  maxAge: '1d',
+};
+app.use(express.static(path.join(__dirname, 'public'),options));
+app.use('/students', express.static(path.join(__dirname, 'public'),options));
+app.use('/students/update', express.static(path.join(__dirname, 'public'),options));
+
 
 
 
@@ -80,7 +93,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-console.log("Port:3000");
 
 
 module.exports = app;
