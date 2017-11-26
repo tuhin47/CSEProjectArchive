@@ -6,13 +6,31 @@ router.get('/', function(req, res, next) {
 });
 
 
-/*test purpose*/
-
-var testupload = require('../controllers/testupload');
 router.get('/test', function(req, res) {
   res.render('demopic');
 });
 
-router.post('/test', testupload.addproject);
 
+/*test purpose*/
+/*
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, './uploads');
+  },
+  filename: function(req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  }
+});
+
+var upload = multer({
+  storage: storage
+});
+
+router.post('/test', upload.single('img'), function(req, res, err) {
+  if (err) console.log(err);
+  console.log("==================");
+  res.redirect('/');
+});
+*/
 module.exports = router;
