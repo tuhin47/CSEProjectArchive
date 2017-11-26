@@ -11,8 +11,10 @@ var datas = require('../controllers/uploadcontroller');
 router.get('/', function(req, res, next) {
   res.render('adduser');
 });
-router.post('/data', upload.single('propic'),datas.dataUpload);
+router.post('/data', upload.single('propic'), datas.dataUpload);
 
-router.get('/:filename',datas.photofetch);
+router.get('/:filename', datas.photofetch);
+
+
 
 module.exports = router;
