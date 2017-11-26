@@ -34,7 +34,11 @@ var app = express();
 // view engine setup
 app.set('views', [path.join(__dirname, 'views'),
   path.join(__dirname, 'views/students'),
+<<<<<<< HEAD
   path.join(__dirname, 'views/addform')
+=======
+  path.join(__dirname,'views/addform')
+>>>>>>> 78dd154f2176787a373639bb4489e70ac4cc27b0
 ]);
 app.set('view engine', 'ejs');
 

@@ -1,0 +1,20 @@
+section#addproject {
+  width: 700px;
+  float: left;
+}
+
+#field {
+  margin-bottom: 5px;
+}
+
+.form-control {
+  float: left;
+  display: block;
+  width: 250px;
+  height: 33px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}

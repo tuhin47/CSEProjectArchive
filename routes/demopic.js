@@ -9,8 +9,6 @@ var upload = multer({
 });
 
 var mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost/cseprojects");
 var conn = mongoose.connection;
 
 var gfs;
@@ -21,7 +19,7 @@ conn.once("open", function() {
   gfs = Grid(conn.db);
   router.get("/", function(req, res) {
     //renders a multipart/form-data form
-    res.render("demopic");
+    res.render("addproject");
   });
 
   //second parameter is multer middleware.
