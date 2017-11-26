@@ -32,6 +32,7 @@ var db = mongoose.connection;
 var app = express();
 
 // view engine setup
+
 app.set('views', [path.join(__dirname, 'views'),
   path.join(__dirname, 'views/students'),
   path.join(__dirname,'views/addform')
@@ -46,7 +47,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 app.use('/', index);
@@ -64,8 +65,13 @@ app.use('/admin', admin);
 
 app.use('/demopic', demopic);
 
-app.use('/students', express.static(path.join(__dirname, 'public')));
-app.use('/students/update', express.static(path.join(__dirname, 'public')));
+var options = {
+  maxAge: '1d',
+};
+app.use(express.static(path.join(__dirname, 'public'),options));
+app.use('/students', express.static(path.join(__dirname, 'public'),options));
+app.use('/students/update', express.static(path.join(__dirname, 'public'),options));
+
 
 
 
