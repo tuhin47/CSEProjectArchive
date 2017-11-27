@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
 
 var multer = require('multer');
@@ -7,13 +8,17 @@ var storage = multer.diskStorage({
     cb(null, './public/profile');
   },
   filename: function(req, file, cb) {
-    //  req.params.q = "something";
-    cb(null, file.originalname);
+
+    var imgname = req.body.reg + '-' + new Date().getTime() + path.extname(file.originalname);
+    req.session.img = imgname;
+    cb(null, imgname);
+
+
   }
 });
 
 var limits = {
-  fileSize: 5 * 1024 * 1024
+  fileSize: 1 * 1024 * 1024
 };
 
 var upload = multer({
@@ -28,8 +33,8 @@ router.get('/', function(req, res, next) {
 });
 router.post('/data', upload.single('propic'), datas.dataUpload);
 
-router.get('/:filename', datas.photofetch);
-
-
+//
+// router.get('/:filename', datas.photofetch);
+//
 
 module.exports = router;
