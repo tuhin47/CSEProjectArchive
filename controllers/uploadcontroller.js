@@ -1,11 +1,11 @@
 var fs = require("fs");
 var mongoose = require('mongoose');
-var conn = mongoose.connection;
-
-var gfs;
-var Grid = require("gridfs-stream");
-Grid.mongo = mongoose.mongo;
-
+//
+// var conn = mongoose.connection;
+//
+// var gfs;
+// var Grid = require("gridfs-stream");
+// Grid.mongo = mongoose.mongo;
 var Users = require('../models/user');
 
 function parsingGitorLinkin(input) {
@@ -25,7 +25,7 @@ function parsingGitorLinkin(input) {
 }
 
 exports.dataUpload = function(req, res, next) {
-  gfs = Grid(conn.db);
+  // gfs = Grid(conn.db);
   console.log('---------------------------->>>>in upload/data post');
   var reg = req.body.reg;
   var name = req.body.name;
@@ -35,8 +35,12 @@ exports.dataUpload = function(req, res, next) {
   var linkedin = parsingGitorLinkin(req.body.linkedin);
   var propic = null;
   if (req.file) {
-    propic = req.file.originalname;
+    propic = req.session.img;
+
   }
+  if (req.session.img)
+    console.log("***************************" + req.session.img);
+  else console.log("=========================");
   console.log("before DB");
   Users.find({
     reg: reg,
@@ -69,14 +73,14 @@ exports.dataUpload = function(req, res, next) {
   });
 
 };
-
-exports.photofetch = function(req, res) {
-  gfs = Grid(conn.db);
-  var readstream = gfs.createReadStream({
-    filename: req.params.filename
-  });
-  readstream.on("error", function(err) {
-    console.log("No image found with that title");
-  });
-  readstream.pipe(res);
-};
+//
+// exports.photofetch = function(req, res) {
+//   gfs = Grid(conn.db);
+//   var readstream = gfs.createReadStream({
+//     filename: req.params.filename
+//   });
+//   readstream.on("error", function(err) {
+//     console.log("No image found with that title");
+//   });
+//   readstream.pipe(res);
+// };
