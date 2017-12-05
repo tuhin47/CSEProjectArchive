@@ -4,9 +4,13 @@
 <head>
   <title>Project</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/custom/subjects.css">
 
   <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
@@ -32,11 +36,11 @@
           </ul>
         </nav>
 
-        <form action="#" id="search-form">
+        <form action="/search" id="search-form">
           <fieldset>
             <div class="rowElem">
               <input type="text">
-              <a href="#">Search</a></div>
+              <a href="/search">Search</a></div>
           </fieldset>
         </form>
       </div>
@@ -55,7 +59,27 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
-      <section id="content">
+      <section id="subcontent">
+        <%for(var i=0;i<10;i++){
+          if(i%4==0) {%><br><br>
+          <%}%>
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-light-blue">
+                <div class="inner hov">
+                  <h3 style="color:#000000;"><%=44+i%></h3>
+                  <p>Projects</p>
+                  <p>Batch
+                    <%=2005+i%>
+                  </p>
+                </div>
+                <!-- <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div> -->
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <%}%>
       </section>
 
 
