@@ -133,7 +133,8 @@ fieldset {
 }
 
 .categories li a:hover {
-  color: #ff7b01;
+    color: #ff7b01;
+    font-size: larger;
 }
 
 /* tuhin added*/
