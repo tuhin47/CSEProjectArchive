@@ -44,7 +44,7 @@ header .container {
 section#content {
   float: right;
   margin-left: 0px;
-  width: 750px;
+    width: auto;
 }
 
 aside {
@@ -480,25 +480,25 @@ header nav ul li.current a.m5 {
 }
 
 #search-form input {
-  width: 205px;
-  background: #fff;
-  padding: 4px 5px 4px 5px;
-  border: 1px solid #d0d0d0;
-  border-right: 0;
-  color: #454545;
-  line-height: 1.2em;
-  float: left;
-  height: 18px;
+    width: 205px;
+    background: #fff;
+    padding: 4px 5px 4px 5px;
+    border: 1px solid #d0d0d0;
+    border-right: 0;
+    color: #454545;
+    line-height: 1.2em;
+    float: left;
+    height: 25px;
 }
 
 #search-form a {
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  float: left;
-  background-color: #0087c1;
-  padding: 6px 11px 0 11px;
-  height: 22px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    float: left;
+    background-color: #0087c1;
+    padding: 6px 11px 3px 11px;
+    height: 26px;
 }
 
 #search-form a:hover {
