@@ -18,15 +18,17 @@ var addUser = require('./routes/addUser');
 var students = require('./routes/students');
 var admin = require('./routes/admin');
 var demopic = require('./routes/demopic');
-
-
-
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var url = require('url');
 //var sleep=require('sleep');
+var fs = require('fs');
+var dir = 'public/profile';
 
-mongoose.connect('mongodb://localhost/cseprojects');
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+mongoose.connect('mongodb://localhost/cseprojects',{ useMongoClient: true });
 var db = mongoose.connection;
 
 
