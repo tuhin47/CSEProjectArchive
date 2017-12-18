@@ -14,7 +14,7 @@
 /* for table*/
 
 table {
-  margin-left: -80px;
+  margin-left: -180px;
   float: left;
 }
 
@@ -22,7 +22,7 @@ table.blueTable {
   font-family: "Courier New", Courier, monospace;
   border: 2px solid #1C6EA4;
   /*background-color: #FFFFFF;*/
-  width: 60%;
+  width: 55%;
   text-align: right;
   border-collapse: collapse;
 }
@@ -38,7 +38,7 @@ table.blueTable tbody td {
 
 table.blueTable td:nth-child(even) {
   text-align: left;
-  background: #7FD9E6;
+  background: #c4f5c4;
 }
 
 table.blueTable tfoot td {
@@ -55,4 +55,7 @@ table.blueTable tfoot .links a {
   color: #FFFFFF;
   padding: 2px 8px;
   border-radius: 5px;
+}
+h3#basic{
+  text-align: -webkit-auto;
 }
