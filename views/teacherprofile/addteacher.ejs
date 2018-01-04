@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AddTeacher</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <!-- Website CSS style -->
+
+  <style>
+    .cropit-preview {
+      background-color: #f8f8f8;
+      background-size: cover;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-top: 7px;
+      width: 250px;
+      height: 250px;
+
+    }
+
+    .cropit-preview-image-container {
+      cursor: move;
+    }
+
+    .image-size-label {
+      margin-top: 10px;
+    }
+
+
+    element.style {
+      transform-origin: left top 0px;
+      will-change: transform;
+      transform: translate(0px, 0px) scale(1) rotate(0deg);
+    }
+
+    input,
+    .export {
+      display: block;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+
+  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/addpic.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
+
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/cufon-replace.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/jquery.cropit.js"></script>
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="js/jquery.cropit.js"></script>
+
+
+
+</head>
+
+<body id="page1">
+  <!-- START PAGE SOURCE -->
+  <div class="wrap">
+    <header>
+      <div class="container">
+        <h1><a href="#">CSE Project Archive</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/index" class="m1">Home Page</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/batches" class="m3">Batches</a></li>
+            <li><a href="/projects" class="m4">Projects</a></li>
+            <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+          </ul>
+        </nav>
+
+
+      </div>
+    </header>
+    <div class="container">
+      <aside>
+        <h3>Categories</h3>
+        <ul class="categories">
+          <li><span><a href="/index">Home</a></span></li>
+          <li><span><a href="/subjects">Subjects</a></span></li>
+          <li><span><a href="/batches">Batches</a></span></li>
+          <li><span><a href="/projects">All projects</a></span></li>
+          <li><span><a href="/students">Student Info</a></span></li>
+          <li><span><a href="/teachers">Teachers</a></span></li>
+          <li><span><a href="/admin">Administrators</a></span></li>
+          <li class="last"><span><a href="/contact">About Us</a></span></li>
+        </ul>
+      </aside>
+      <form action="/upload/data" class="form-horizontal" method="POST" enctype="multipart/form-data">
+        <section id="addContent">
+          <div class="widget-box">
+            <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+              <h3>Teacher-info</h3>
+            </div>
+            <div class="widget-content nopadding">
+
+              <div class="control-group">
+                <label class="control-label">Full Name :</label>
+                <div class="controls">
+                  <input required type="text" name="name" class="span3" placeholder="Full name" />
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Designation :</label>
+                <div class="controls">
+                  <input required type="text" name="designation" class="span3" placeholder="Full name" />
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Email :</label>
+                <div class="controls">
+                  <input required type="email" name="email" class="span3" placeholder="Email" />
+                </div>
+              </div>
+
+
+
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </section>
+        <section id="addPic">
+          <div class="image-editor">
+
+            <div class="cropit-preview"></div>
+            <!-- <div class="image-size-label">
+            Resize image
+          </div> -->
+            <!-- <input type="range" class="cropit-image-zoom-input"> -->
+            <input name="propic" type="file" class="cropit-image-input">
+            <!--
+          <button class="rotate-ccw">Rotate counterclockwise</button>
+          <button class="rotate-cw">Rotate clockwise</button> -->
+
+          </div>
+
+        </section>
+      </form>
+
+    </div>
+  </div>
+  <footer>
+    <div class="footerlink">
+      <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+      <p class="rf">Design by <a href="#">SUST</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    Cufon.now();
+  </script>
+
+  <script>
+  /*add pic script*/
+    $(function() {
+      $('.image-editor').cropit({
+        imageState: {
+          src: 'img/2.jpg',
+        },
+      });
+      $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+      });
+      $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+      });
+      $('.export').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        window.open(imageData);
+      });
+    });
+  </script>
+
+  <script>
+    $(function() {
+      $('.image-editor').cropit({
+        imageState: {
+          src: 'http://lorempixel.com/500/400/',
+        },
+      });
+      $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+      });
+      $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+      });
+      $('.export').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        window.open(imageData);
+      });
+    });
+  </script>
+
+
+  <!-- END PAGE SOURCE -->
+</body>
+
+</html>
