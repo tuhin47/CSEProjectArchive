@@ -25,10 +25,17 @@ var url = require('url');
 var fs = require('fs');
 var dir = 'public/profile';
 
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+
+var teachers = require('./routes/teachers');
+
+
+
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
 }
-mongoose.connect('mongodb://localhost/cseprojects',{ useMongoClient: true });
+mongoose.connect('mongodb://localhost/cseprojects', {
+  useMongoClient: true
+});
 var db = mongoose.connection;
 
 
@@ -37,8 +44,10 @@ var app = express();
 // view engine setup
 
 app.set('views', [path.join(__dirname, 'views'),
-  path.join(__dirname, 'views/students'),
-  path.join(__dirname, 'views/addform')
+                  path.join(__dirname, 'views/students'),
+                  path.join(__dirname, 'views/addform'),
+                  path.join(__dirname, 'views/teacherprofile')
+
 ]);
 app.set('view engine', 'ejs');
 
@@ -75,6 +84,7 @@ app.use('/students', students);
 app.use('/admin', admin);
 
 app.use('/demopic', demopic);
+app.use('/teachers',teachers);
 
 var options = {
   maxAge: '1d',
@@ -82,6 +92,9 @@ var options = {
 app.use(express.static(path.join(__dirname, 'public'), options));
 app.use('/students', express.static(path.join(__dirname, 'public'), options));
 app.use('/students/update', express.static(path.join(__dirname, 'public'), options));
+
+app.use('/teachers', express.static(path.join(__dirname, 'public'), options));
+app.use('/students/addteaher', express.static(path.join(__dirname, 'public'), options));
 
 
 
