@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Parallax Depth Cards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'>
@@ -13,33 +18,71 @@
 
 </head>
 
-<body>
-  <h1 class="title">Our Honourable Teachers</h1>
 
-<div id="app" class="container">
-  <%for(var i=0;i<20;i++){%>
-  <card data-image="teacher/01712568914-1515227974498.png">
-    <h2 slot="header">Dr. Muhammad Reza Selim</h2>
-    <h2 slot="header" >Head of Department</h2>
-    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  </card>
-  <!-- <card data-image="https://images.unsplash.com/photo-1479659929431-4342107adfc1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=">
-    <h1 slot="header">Beaches</h1>
-    <h2 slot="header" >Lecturer</h2>
-    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  </card>
-  <card data-image="https://images.unsplash.com/photo-1479644025832-60dabb8be2a1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=">
-    <h1 slot="header">Trees</h1>
-    <h2 slot="header" >Lecturer</h2>
-    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  </card>
-  <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=">
-    <h1 slot="header">Lakes</h1>
-    <h2 slot="header" >Lecturer</h2>
-    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  </card> -->
-  <%}%>
-</div>
+  <body id="page1">
+    <!-- START PAGE SOURCE -->
+    <div class="wrap">
+      <header>
+        <div class="container">
+          <h1><a href="#">CSE Project Archive</a></h1>
+          <nav>
+            <ul>
+              <li><a href="/index" class="m1">Home Page</a></li>
+              <li><a href="/subjects" class="m2">Subjects</a></li>
+              <li><a href="/batches" class="m3">Batches</a></li>
+              <li><a href="/projects" class="m4">Projects</a></li>
+              <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+            </ul>
+          </nav>
+
+        </div>
+      </header>
+
+
+
+        <div id="app" class="container">
+          <%for(var i=0;i<20;i++){%>
+          <card data-image="/teacher/01712524543-1515252293114.jpg">
+            <h2 slot="header">Dr. Muhammad Reza Selim</h2>
+            <h2 slot="header" >Head of Department</h2>
+            <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </card>
+          <!-- <card data-image="https://images.unsplash.com/photo-1479659929431-4342107adfc1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=">
+            <h1 slot="header">Beaches</h1>
+            <h2 slot="header" >Lecturer</h2>
+            <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </card>
+          <card data-image="https://images.unsplash.com/photo-1479644025832-60dabb8be2a1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=">
+            <h1 slot="header">Trees</h1>
+            <h2 slot="header" >Lecturer</h2>
+            <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </card>
+          <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=">
+            <h1 slot="header">Lakes</h1>
+            <h2 slot="header" >Lecturer</h2>
+            <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </card> -->
+          <%}%>
+        </div>
+
+
+  
+    </div>
+    <footer>
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+        <p class="rf">Design by <a href="#">SUST</a></p>
+        <div style="clear:both;"></div>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      Cufon.now();
+    </script>
+
+
+    <!-- END PAGE SOURCE -->
+
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
 
     <script src="css/teacher/js/index.js"></script>
