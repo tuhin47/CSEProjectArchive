@@ -7,7 +7,7 @@ var Teachers = require('../models/teacher');
 
 exports.teacherprofile = function(req, res) {
   console.log("in teacherprofile");
-  res.render('teacher');
+  res.render('teacherpro');
 };
 
 exports.addteacherprofile = function(req, res) {

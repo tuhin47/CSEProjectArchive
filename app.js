@@ -94,8 +94,8 @@ app.use('/students', express.static(path.join(__dirname, 'public'), options));
 app.use('/students/update', express.static(path.join(__dirname, 'public'), options));
 
 app.use('/teachers', express.static(path.join(__dirname, 'public'), options));
-app.use('/students/addteaher', express.static(path.join(__dirname, 'public'), options));
-
+app.use('/teachers/addteacher', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/profile', express.static(path.join(__dirname, 'public'), options));
 
 
 
