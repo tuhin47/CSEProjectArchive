@@ -1,6 +1,7 @@
 
 var fs = require("fs");
 var mongoose = require('mongoose');
+var sortJsonArray = require('sort-json-array');
 
 var Teachers = require('../models/teacher');
 
@@ -12,8 +13,9 @@ exports.teacherprofile = function(req, res) {
     else if (results.length > 0) {
       console.log(results);
       console.log("in teacherprofile");
-      res.render('teachergrid');
-
+      sortJsonArray(results,'serial','des');
+      console.log(results);
+      res.render('teachergrid',{results:results});
     }else {
       res.render('No Teacher Included');
     }
