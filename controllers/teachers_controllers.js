@@ -1,13 +1,29 @@
 
 var fs = require("fs");
 var mongoose = require('mongoose');
+var sortJsonArray = require('sort-json-array');
 
 var Teachers = require('../models/teacher');
 
 
 exports.teacherprofile = function(req, res) {
-  console.log("in teacherprofile");
-  res.render('teachergrid');
+  Teachers.find({
+  }, function(err, results) {
+    if (err) return console.error(err);
+    else if (results.length > 0) {
+      console.log(results);
+      console.log("in teacherprofile");
+      sortJsonArray(results,'serial','des');
+      console.log(results);
+      res.render('teachergrid',{results:results});
+    }else {
+      res.render('No Teacher Included');
+    }
+
+  });
+
+
+
 };
 
 exports.addteacherprofile = function(req, res) {
@@ -24,6 +40,7 @@ exports.teacherdataupload = function(req, res, next) {
   var contactno=req.body.contactno;
   var roomno=req.body.roomno;
   var details=req.body.details;
+  var serial=req.body.serial;
   var propic = null;
   if (req.file) {
     propic = req.session.img;
@@ -40,6 +57,7 @@ exports.teacherdataupload = function(req, res, next) {
   console.log('name---'+designation);
   console.log('name---'+propic);
   console.log('details'+ details);
+  console.log('serial  '+serial);
 
 
 
@@ -61,7 +79,8 @@ exports.teacherdataupload = function(req, res, next) {
         contactno:contactno,
         roomno:roomno,
         details:details,
-        propic:propic
+        propic:propic,
+        serial:serial
       });
 
       teacher.save(function(err, results) {
