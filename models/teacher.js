@@ -27,9 +27,6 @@ var TeacherSchema = mongoose.Schema({
   propic :{
     type:String
   },
-	serial:{
-		type:Number
-	}
 
 });
 
