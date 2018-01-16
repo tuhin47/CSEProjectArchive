@@ -20,23 +20,20 @@ exports.findteacher = function(req, res) {
 };
 
 
-exports.teacherprofile = function(req, res) {
+exports.teacherprofile = function(req, res, next) {
+  var id=req.params.id;
+  console.log('--------- -> '+id);
   Teachers.find({
-  }, function(err, results) {
-    if (err) return console.error(err);
-    else if (results.length > 0) {
+      _id: id
+    },
+    function(err, results) {
+      if (err) throw err;
+      if (results.toString() === '') {
+        res.redirect('/');
+      }
       console.log(results);
-      console.log("in teacherprofile");
-      sortJsonArray(results,'serial','des');
-      console.log(results);
-      res.render('teachergrid',{results:results});
-    }else {
-      res.render('No Teacher Included');
-    }
-
-  });
-
-
+      res.render('teacher', {results:results});
+    });
 
 };
 

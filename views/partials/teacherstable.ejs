@@ -16,17 +16,17 @@
         <% for(var i=0;i<results.length;i++){ %>
           <tr>
             <td>
-              <a href="teachers/<%= results[i]._id %>-">
+              <a href="/teachers/profile/<%=results[i]._id%>">
               <%=results[i].name%>
               </a>
             </td>
             <td>
-              <a href="teachers/<%= results[i]._id%>">
+              <a href="/teachers/profile/<%=results[i]._id%>">
               <%= results[i].designation %>
               </a>
             </td>
             <td>
-              <a href="students/<%= results[i]._id%>">
+              <a href="/teachers/profile/<%=results[i]._id%>">
               <%= results[i].email%>
               </a>
             </td>
