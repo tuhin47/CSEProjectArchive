@@ -7,8 +7,11 @@ var ProjectSchema = mongoose.Schema({
     required: true,
     auto: true,
   },
-  projectname: String,
-  teammembers: String,
+  title: String,
+  coursename:String,
+  teammembers: [String],
+  link:String,
+  description:String
 
 });
 

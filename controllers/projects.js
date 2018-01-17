@@ -1,11 +1,18 @@
 var Project = require('../models/project');
 
+
+
 exports.addproject = function(req, res, next) {
 
+  var title = req.body.title;
+  var coursename = req.body.coursename;
+  var teammembers;
+  for (var i = 0; i < req.body.length; i++) {
+    teammembers.push();
+  }
 
-  var projecttitle = req.body.title;
-  var cousename = req.body.cousename;
-
+  var link = req.body.title;
+  var description = req.body.title;
   var project1 = new Projects({
     projectname: "test",
     teammembers: ["2013", "2014"]
