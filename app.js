@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+var url = require('url');
+//var sleep=require('sleep');
+var fs = require('fs');
 
 var index = require('./routes/index');
 // var users = require('./routes/users');
@@ -18,11 +23,7 @@ var addUser = require('./routes/addUser');
 var students = require('./routes/students');
 var admin = require('./routes/admin');
 var demopic = require('./routes/demopic');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var url = require('url');
-//var sleep=require('sleep');
-var fs = require('fs');
+
 var dir = 'public/profile';
 
 if (!fs.existsSync(dir)){
@@ -73,7 +74,6 @@ app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
 app.use('/admin', admin);
-
 app.use('/demopic', demopic);
 
 var options = {
@@ -82,7 +82,7 @@ var options = {
 app.use(express.static(path.join(__dirname, 'public'), options));
 app.use('/students', express.static(path.join(__dirname, 'public'), options));
 app.use('/students/update', express.static(path.join(__dirname, 'public'), options));
-
+app.use('/projects', express.static(path.join(__dirname, 'public'), options));
 
 
 
