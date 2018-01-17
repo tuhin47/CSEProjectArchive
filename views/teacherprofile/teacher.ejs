@@ -1,37 +1,156 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Mad Logics- User Profile with HTML and CSS</title>
-    
+  <title>Info</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/students.css" type="text/css" media="all">
+
+  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/cufon-replace.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 
 </head>
-<body>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-    <%for(var i=0;i<50;i++){%>
 
+<body id="page1">
+  <!-- START PAGE SOURCE -->
+  <div class="wrap">
+    <header>
+      <div class="container">
+        <h1><a href="#">CSE Project Archive</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/index" class="m1">Home Page</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/batches" class="m3">Batches</a></li>
+            <li><a href="/projects" class="m4">Projects</a></li>
+            <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+          </ul>
+        </nav>
 
+        <form action="#" id="search-form">
+          <fieldset>
+            <div class="rowElem">
+              <input type="text">
+              <a href="#">Search</a></div>
+          </fieldset>
+        </form>
+      </div>
+    </header>
+    <div class="container">
+      <aside>
+        <h3>Categories</h3>
+        <ul class="categories">
+          <li><span><a href="/index">Home</a></span></li>
+          <li><span><a  href="/subjects">Subjects</a></span></li>
+          <li><span><a href="/batches">Batches</a></span></li>
+          <li><span><a href="/projects">All projects</a></span></li>
+          <li><span><a href="/students">Student Info</a></span></li>
+          <li><span><a href="/teachers">Teachers</a></span></li>
+          <li><span><a href="/admin">Administrators</a></span></li>
+          <li class="last"><span><a href="/contact">About Us</a></span></li>
+        </ul>
+      </aside>
+      <div class="multiple-borders">
+        <%if(results[0].propic){
+console.log(results[0].propic);
+          %>
+          <img src="teacher/<%=results[0].propic%>" />
+          <%} else {%>
+            <img src="img/avatar.jpg%>" />
 
-    <div class="flip-container">
-        <div class="flipper">
-            <div class="front">
-                <img src="http://lh4.googleusercontent.com/-Q496g4B9fZM/AAAAAAAAAAI/AAAAAAAAA-Q/R6lBS2H9CtQ/s512-c/photo.jpg" />
-                <p>Abhay, Makadia</p>
-                <div class="sub">
-                    <p>Web Developer/Designer</p>
-                </div>
-            </div>
-            <div class="back">
-                <p id="titulo">Abhay Makadia</p>
-                <p>Web Developer/Designer</p>
-                <p>Country: India</p>
-                <p>Birth: 6<sup>th</sup> Jan 1990</p>
-                <!-- <a href="https://www.facebook.com/MADLogics" id="social" class="social">f</a>
-                <a href="https://twitter.com/Abhay_Makadia" class="social">t</a>
-                <a href="https://www.linkedin.com/pub/abhay-makadia/57/622/124‎" class="social">in</a>
-                <a href="https://plus.google.com/103263344673014509508/posts" class="social">g+</a> -->
-            </div>
+            <%}%>
+      </div>
+      <section id="content">
+        <div id="basicpostion">
+          <h3>Teacher info</h3>
         </div>
-    </div>
-    <%}%>
 
+
+        <table class="blueTable">
+
+          <tbody>
+
+            <tr>
+              <td>Name :</td>
+              <td>
+                <%=results[0].name%>
+              </td>
+            </tr>
+            <tr>
+              <td>Design. :</td>
+              <td>
+                <%=results[0].designation%>
+              </td>
+            </tr>
+            <tr>
+              <td>Email :</td>
+              <td>
+                <%=results[0].email%>
+              </td>
+            </tr>
+            <tr>
+              <td>Contact :</td>
+              <td>
+                <%=results[0].contactno%>
+              </td>
+            </tr>
+            <tr>
+              <td>Room No :</td>
+              <td>
+                <%=results[0].roomno%>
+              </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <input class="btn btn-success" type="button" value="More Info" onclick="window.open('<%=results[0].details%>')" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <a class="btn btn-xs btn-warning btn-edit" href="/teachers/edit/<%=results[0]._id %>">Edit</a>
+                <a class="btn btn-xs btn-danger btn-delete" href="/teachers/delete/<%=results[0]._id %>">Delete</a>
+                <!-- <input onclick='/teachers/edit/<%results[0]._id%>' class="btn btn-warning" type="button" value="Edit" />
+                <input href='/teachers/delete/<%results[0]._id%>' class="btn btn-danger" type="button" value="Delete" /> -->
+              </td>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+
+      </section>
+      <!-- <div class="container">
+        <button class="button button2">More Info</button>
+        <button class="btn btn-warning">Edit</button>
+        <button class="btn btn-warning">Delete</button>
+      </div> -->
+
+    </div>
+  </div>
+  <footer>
+    <div class="footerlink">
+      <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+      <p class="rf">Design by <a href="#">SUST</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    Cufon.now();
+  </script>
+
+
+  <!-- END PAGE SOURCE -->
 </body>
+
 </html>

@@ -32,7 +32,7 @@ var teacher = multer({
 
 
 router.get('/findteachers',teachers_controllers.findteacher);
-router.get('/profile',teachers_controllers.teacherprofile);
+router.get('/profile/:id',teachers_controllers.teacherprofile);
 router.get('/addteacher',teachers_controllers.addteacherprofile);
 router.post('/addteacher',teacher.single('propic'),teachers_controllers.teacherdataupload);
 
