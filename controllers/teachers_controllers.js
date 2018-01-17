@@ -37,6 +37,25 @@ exports.teacherprofile = function(req, res, next) {
 
 };
 
+exports.editteacherprofile=function(req,res){
+  var id=req.params.id;
+  Teachers.find({
+      _id: id
+    },
+    function(err, results) {
+      if (err) throw err;
+      if (results.toString() === '') {
+        res.redirect('/');
+      }
+      console.log(results);
+      
+      res.render('editteacher', {results:results});
+    });
+};
+
+
+
+
 exports.addteacherprofile = function(req, res) {
   console.log("add form data");
   res.render('addteacher');
