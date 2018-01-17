@@ -46,12 +46,84 @@ exports.editteacherprofile=function(req,res){
       if (err) throw err;
       if (results.toString() === '') {
         res.redirect('/');
+      }else {
+        console.log(results);
+
+        res.render('editteacher', {results:results});
       }
-      console.log(results);
-      
-      res.render('editteacher', {results:results});
+
     });
 };
+
+exports.updateteacher=function(req, res) {
+var id=req.params.id;
+var name = req.body.name;
+var designation=req.body.designation;
+var email = req.body.email;
+var contactno=req.body.contactno;
+var roomno=req.body.roomno;
+var details=req.body.details;
+
+var propic = null;
+if (req.file) {
+  propic = req.session.img;
+
+}
+if (req.session.img)
+  console.log("***************************" + req.session.img);
+else console.log("=========================");
+console.log("before DB");
+console.log('name---'+name);
+console.log('email---'+email);
+console.log('conta---'+contactno);
+console.log('name---'+roomno);
+console.log('name---'+designation);
+console.log('name---'+propic);
+console.log('details'+ details);
+
+  var query = {
+    '_id':id
+  };
+
+  Teachers.findOneAndUpdate(query, {
+    $set: {
+      name:name,
+      designation:designation,
+      email:email,
+      contactno:contactno,
+      roomno:roomno,
+      details:details,
+      propic:propic
+    }
+  }, {
+    new: true,
+    upsert: true
+  }, function(err, doc) {
+    if (err) {
+      console.log("Something wrong when updating data!");
+    }
+    Teachers.find({
+      _id: id
+    }, function(err,results) {
+      if(err) throw err;
+      res.render('/findteachers',{results:results});
+    });
+
+  });
+};
+
+
+
+exports.deleteteacherprofile=function(req,res){
+  var id=req.params.id;
+  Teachers.remove({
+    _id: id
+  }, function(err) {
+    if(err) throw err;
+    res.redirect('/teachers/findteachers');
+  });
+};
+
 
 
 

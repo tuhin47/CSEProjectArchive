@@ -101,7 +101,7 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
-      <form action="/teachers/addteacher" class="form-horizontal" method="POST" enctype="multipart/form-data">
+      <form action="/teachers/update/<%=results[0]._id%>" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <section id="addContent">
           <div class="widget-box">
             <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
@@ -172,8 +172,8 @@
           </div> -->
             <!-- <input type="range" class="cropit-image-zoom-input"> -->
             <h4>pixels 600*400 recommended</h4>
-            
-            <input name="propic" src=""  type="file" class="cropit-image-input" required>
+
+            <input name="propic"  type="file" class="cropit-image-input" required>
             <!--
           <button class="rotate-ccw">Rotate counterclockwise</button>
           <button class="rotate-cw">Rotate clockwise</button> -->
