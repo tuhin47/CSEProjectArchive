@@ -31,9 +31,14 @@ var teacher = multer({
 
 
 
+
 router.get('/findteachers',teachers_controllers.findteacher);
 router.get('/profile/:id',teachers_controllers.teacherprofile);
+router.get('/edit/:id',teachers_controllers.editteacherprofile);
+router.get('/delete/:id',teachers_controllers.deleteteacherprofile);
+
 router.get('/addteacher',teachers_controllers.addteacherprofile);
 router.post('/addteacher',teacher.single('propic'),teachers_controllers.teacherdataupload);
+router.post('/update/:id',teacher.single('propic'),teachers_controllers.updateteacher);
 
 module.exports = router;

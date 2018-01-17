@@ -97,7 +97,8 @@ app.use('/teachers', express.static(path.join(__dirname, 'public'), options));
 app.use('/teachers/addteacher', express.static(path.join(__dirname, 'public'), options));
 app.use('/teachers/profile', express.static(path.join(__dirname, 'public'), options));
 app.use('/teachers/findteachers', express.static(path.join(__dirname, 'public'), options));
-
+app.use('/teachers/edit', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/delete', express.static(path.join(__dirname, 'public'), options));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
