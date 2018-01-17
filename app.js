@@ -9,7 +9,9 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var url = require('url');
 //var sleep=require('sleep');
+var passport = require('passport');
 var fs = require('fs');
+var flash    = require('connect-flash');
 
 var index = require('./routes/index');
 // var users = require('./routes/users');
@@ -45,6 +47,19 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
+// required for passport
+require('./config/passport')(passport); // pass passport for configuration
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -105,5 +120,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-
+require('./routes/routes.js')(app, passport);
 module.exports = app;
