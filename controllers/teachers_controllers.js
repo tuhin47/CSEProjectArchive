@@ -72,6 +72,7 @@ if (req.file) {
 if (req.session.img)
   console.log("***************************" + req.session.img);
 else console.log("=========================");
+console.log('lets print the id '+id );
 console.log("before DB");
 console.log('name---'+name);
 console.log('email---'+email);
@@ -102,12 +103,27 @@ console.log('details'+ details);
     if (err) {
       console.log("Something wrong when updating data!");
     }
+    console.log('update data ok');
+    // Teachers.find({
+    //   _id: id
+    // }, function(err,results) {
+    //   if(err) throw err;
+    //   res.render('/findteachers',{results:results});
+    // });
+
     Teachers.find({
-      _id: id
-    }, function(err,results) {
-      if(err) throw err;
-      res.render('/findteachers',{results:results});
-    });
+        _id: id
+      },
+      function(err, results) {
+        if (err) throw err;
+        if (results.toString() === '') {
+          res.redirect('/');
+        }
+        console.log(results);
+        res.render('teacher', {results:results});
+      });
+
+
 
   });
 };
