@@ -1,44 +1,42 @@
 // load the things we need
 var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt-nodejs');
+
 
 // define the schema for our user model
 var adminSchema = mongoose.Schema({
 
-    local            : {
-        email        : String,
-        password     : String
-    },
-    facebook         : {
-        id           : String,
-        token        : String,
-        name         : String,
-        email        : String
-    },
-    twitter          : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String
-    },
-    google           : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
-    }
+  email: {type:String,unique:true},
+  password: String
 
 });
 
-// generating a hash
-userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-// checking if password is valid
-userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
-};
-
 // create the model for users and expose it to our app
-module.exports = mongoose.model('Admin', adminSchema);
+var Admin=module.exports = mongoose.model('Admin', adminSchema);
+
+module.exports.createUser = function(newUser, callback){
+	//if (!user.isModified('password')) return next();
+	bcrypt.genSalt(10, function(err, salt) {
+	    bcrypt.hash(newUser.password, salt,null, function(err, hash) {
+				if(err) throw err;
+	        newUser.password = hash;
+	        newUser.save(callback);
+	    });
+	});
+};
+
+module.exports.getUserByEmail = function(email, callback){
+	var query = {email: email};
+	Admin.findOne(query, callback);
+};
+
+module.exports.getUserById = function(id, callback){
+	Admin.findById(id, callback);
+};
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+	bcrypt.compare(candidatePassword, hash, function(err,isMatch) {
+			if (err) throw err;
+    	callback(null, isMatch);
+	});
+};

@@ -50,7 +50,7 @@ app.set('view engine', 'ejs');
 
 
 // required for passport
-require('./config/passport')(passport); // pass passport for configuration
+//require('./config/passport')(passport); // pass passport for configuration
 app.use(session({
     secret: 'ilovescotchscotchyscotchscotch', // session secret
     resave: true,
@@ -120,5 +120,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-require('./routes/routes.js')(app, passport);
 module.exports = app;

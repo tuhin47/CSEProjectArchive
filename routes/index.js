@@ -6,12 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/signup', function(req, res, next) {
-  res.render('signup', {
-    message: ""
-  });
-});
-
 
 router.get('/index', function(req, res, next) {
   res.render('index');
