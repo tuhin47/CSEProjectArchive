@@ -1,0 +1,50 @@
+<head>
+  <style media="screen">
+    .navbar-fixed-top {
+
+      left: 0;
+      top: 3px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 940px;
+    }
+
+    header nav ul li.current a,
+    header nav ul li a:hover {
+      font-size: 18px;
+    }
+
+    header nav ul li.current a,
+    header nav ul li a:hover {
+      color: #008cc4;
+       font-size: larger;
+    }
+
+    header nav {
+      position: absolute;
+      left: 0;
+      top: 3px;
+    }
+  </style>
+</head>
+
+<!-- class="navbar-fixed-top" -->
+
+<div class="center">
+
+  <nav class="navbar-fixed-top">
+    <ul class="nav">
+      <li><a href="/index" class="m1">Home Page</a></li>
+      <li ><a href="/subjects" class="m2">Subjects</a></li>
+      <li><a href="/batches" class="m3">Batches</a></li>
+      <li><a href="/projects" class="m4">Projects</a></li>
+      <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+    </ul>
+  </nav>
+</div>
+<script type="text/javascript">
+  $(".nav a").on("click", function() {
+    $(".nav").find(".current").removeClass("current");
+    $(this).parent().addClass("current");
+  });
+</script>

@@ -5,7 +5,7 @@
   <title>Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
   <link rel="stylesheet" href="css/uniform.css">
   <link rel="stylesheet" href="css/select2.css">
@@ -27,15 +27,7 @@
     <header>
       <div class="container">
         <h1><a href="#">CSE Project Archive</a></h1>
-        <nav>
-          <ul>
-            <li><a href="/index" class="m1">Home Page</a></li>
-            <li><a href="/subjects" class="m2">Subjects</a></li>
-            <li><a href="/batches" class="m3">Batches</a></li>
-            <li><a href="/projects" class="m4">Projects</a></li>
-            <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
-          </ul>
-        </nav>
+        <%include partials/topnavbar.ejs%>
       </div>
     </header>
     <div class="container">
@@ -53,6 +45,7 @@
         </ul>
       </aside>
       <section id="content">
+        <%include partials/searchtable.ejs%>
         <%include partials/searchtable.ejs%>
       </section>
 

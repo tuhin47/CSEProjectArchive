@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var projects= require('../controllers/projects');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('projects');
 });
 
+
+router.get('/add', function(req, res) {
+  res.render('addproject');
+});
+router.post('/add', projects.addproject );
 
 router.get('/test', function(req, res) {
   res.render('demopic');

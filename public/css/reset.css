@@ -24,8 +24,9 @@ table, table td {
 }
 
 img {
-  vertical-align: top;
-  max-width: inherit;
+    vertical-align: top;
+    max-width: inherit;
+    max-height: inherit;
 }
 
 embed {

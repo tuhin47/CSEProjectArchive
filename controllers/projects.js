@@ -1,20 +1,37 @@
-var Project = require('../models/project');
+var Projects = require('../models/project');
+
+
 
 exports.addproject = function(req, res, next) {
 
-
-  var projecttitle = req.body.title;
-  var cousename = req.body.cousename;
-
-  var project1 = new Projects({
-    projectname: "test",
-    teammembers: ["2013", "2014"]
+  var title = req.body.title;
+  var coursename = req.body.coursename;
+  var link = req.body.link;
+  var description = req.body.description;
+  var teammembers = [];
+  for (var i = 0; i < 100; i++) {
+    var temp = 'field' + i;
+    if (req.body[temp]) {
+      teammembers.push(req.body[temp]);
+      // console.log(req.body[temp]);
+    }
+  }
+  var project = new Projects({
+    title: title,
+    coursename: coursename,
+    teammembers: teammembers,
+    link: link,
+    description: description
   });
 
-  project1.save(function(err, results) {
-    console.error(results);
-    console.log(results);
+  project.save(function(err, results) {
+    if (err) console.error(err);
     if (err) throw err;
+    console.log(results);
+    res.redirect("/");
   });
+
+//  res.send(title + "  " + coursename + "  " + link + "  " + description + "  " + teammembers);
+
 
 };
