@@ -1,4 +1,4 @@
-var Project = require('../models/project');
+var Projects = require('../models/project');
 
 
 
@@ -17,29 +17,28 @@ exports.addproject = function(req, res, next) {
     }
   }
   var project = new Projects({
-    title: "title",
-    coursename:"coursename",
-    teammembers: "teammembers",
-    link:"link",
-    description:"description"
-  //  teammembers: ["2013", "2014"]
+    title:title,
+    coursename:coursename,
+    teammembers:teammembers,
+    link: link,
+    description:description
   });
-
-  project.save(function(err, results) {
-    if(err) console.error(err);
-    console.log(results);
-    if (err) throw err;
-  });
+  //
+  // project.save(function(err, results) {
+  //   if(err) console.error(err);
+  //   console.log(results);
+  //   if (err) throw err;
+  // });
 
   res.send(title + "  " + coursename + "  " + link + "  " + description + "  " + teammembers);
 
   //console.log(teammembers.length);
 
-
-  project.save(function(err, results) {
-    if (err) console.log(err);
-    //console.log(results._id);
-    res.redirect("/");
-  });
+  //
+  // project.save(function(err, results) {
+  //   if (err) console.log(err);
+  //   //console.log(results._id);
+  //   res.redirect("/");
+  // });
 
 };

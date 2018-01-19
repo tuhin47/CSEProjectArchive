@@ -1,12 +1,7 @@
 var mongoose = require('mongoose');
 // User Schema
 var ProjectSchema = mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    index: true,
-    required: true,
-    auto: true,
-  },
+  
   title: {type:String},
   coursename:String,
   teammembers: [String],
