@@ -40,7 +40,8 @@
     }
 
     .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+      /*width: auto;*/
     }
 
     .container {
@@ -73,6 +74,15 @@
     .button:hover {
       background-color: #555;
     }
+
+    section#left {
+      width: 700px;
+      height: auto;
+    }
+
+    h2 {
+      text-transform: inherit;
+    }
   </style>
 </head>
 
@@ -102,47 +112,68 @@
       </div>
     </header>
     <div class="container">
+      <section>
+        <div class="col-md-12">
+              <h2>Project Title:CSE Project Archive</h2>
+        </div>
+      </section>
+      <section id="left">
+        <h2>Team Members</h2>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar.png" alt="Jane" style="width:50%">
+              <div class="container">
+                <h2>Jane Doe</h2>
+                <!-- <p class="title">CEO & Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <img src="/img/avatar.png" alt="Jane" style="width:100%">
-            <div class="container">
-              <h2>Jane Doe</h2>
-              <p class="title">CEO & Founder</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar2.png" alt="Mike" style="width:50%">
+              <div class="container">
+                <h2>Mike Ross</h2>
+                <!-- <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar.jpg" alt="John" style="width:50%">
+              <div class="container">
+                <h2>John Doe</h2>
+                <!-- <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="/img/avatar2.png" alt="Mike" style="width:100%">
-            <div class="container">
-              <h2>Mike Ross</h2>
-              <p class="title">Art Director</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
+        <h2>Supervisor</h2>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar.png" alt="Jane" style="width:50%">
+              <div class="container">
+                <h2>Jane Doe</h2>
+                <!-- <p class="title">CEO & Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
             </div>
           </div>
         </div>
-        <div class="column">
-          <div class="card">
-            <img src="/img/avatar.jpg" alt="John" style="width:100%">
-            <div class="container">
-              <h2>John Doe</h2>
-              <p class="title">Designer</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="col-md-12" style="width:700px;height:100px">
 
+        </div>
+
+      </section>
 
     </div>
   </div>
