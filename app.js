@@ -46,7 +46,8 @@ var app = express();
 app.set('views', [path.join(__dirname, 'views'),
                   path.join(__dirname, 'views/students'),
                   path.join(__dirname, 'views/addform'),
-                  path.join(__dirname, 'views/teacherprofile')
+                  path.join(__dirname, 'views/teacherprofile'),
+                  path.join(__dirname, 'views/admin'),
 
 ]);
 app.set('view engine', 'ejs');
@@ -100,6 +101,12 @@ app.use('/teachers/findteachers', express.static(path.join(__dirname, 'public'),
 app.use('/teachers/edit', express.static(path.join(__dirname, 'public'), options));
 app.use('/teachers/delete', express.static(path.join(__dirname, 'public'), options));
 app.use('/teachers/update', express.static(path.join(__dirname, 'public'), options));
+
+app.use('/admin', express.static(path.join(__dirname, 'public'), options));
+app.use('/admin/dashboard', express.static(path.join(__dirname, 'public'), options));
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
