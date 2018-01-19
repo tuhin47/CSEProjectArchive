@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+
 router.get('/index', function(req, res, next) {
   res.render('index');
 });
@@ -15,6 +16,6 @@ router.get('/table', function(req, res, next) {
 });
 
 router.get('/demo', function(req, res, next) {
-  res.render('demo');
+  res.render('addproject');
 });
 module.exports = router;

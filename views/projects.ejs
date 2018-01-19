@@ -14,6 +14,76 @@
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    .column {
+      float: left;
+      width: 33.3%;
+      margin-bottom: 16px;
+      padding: 0 8px;
+    }
+
+    @media (max-width: 650px) {
+      .column {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .card {
+      /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+      /*width: auto;*/
+    }
+
+    .container {
+      padding: 0 16px;
+    }
+
+    .container::after,
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .title {
+      color: grey;
+    }
+
+    .button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #555;
+    }
+
+    section#left {
+      width: 700px;
+      height: auto;
+    }
+
+    h2 {
+      text-transform: inherit;
+    }
+  </style>
 </head>
 
 <body id="page1">
@@ -25,9 +95,9 @@
         <nav>
           <ul>
             <li><a href="/index" class="m1">Home Page</a></li>
-            <li ><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
             <li><a href="/batches" class="m3">Batches</a></li>
-            <li class="current"><a  href="/projects" class="m4">Projects</a></li>
+            <li class="current"><a href="/projects" class="m4">Projects</a></li>
             <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
           </ul>
         </nav>
@@ -42,19 +112,68 @@
       </div>
     </header>
     <div class="container">
-      <aside>
-        <h3>Categories</h3>
-        <ul class="categories">
-          <li><span><a href="/index">Home</a></span></li>
-          <li><span><a href="/subjects">Subjects</a></span></li>
-          <li><span><a href="/batches">Batches</a></span></li>
-          <li><span><a id="selected" href="/projects">All projects</a></span></li>
-          <li><span><a href="/students">Student Info</a></span></li>
-          <li><span><a href="/teachers">Teachers</a></span></li>
-          <li><span><a href="/admin">Administrators</a></span></li>
-          <li class="last"><span><a href="/contact">About Us</a></span></li>
-        </ul>
-      </aside>
+      <section>
+        <div class="col-md-12">
+              <h2>Project Title:CSE Project Archive</h2>
+        </div>
+      </section>
+      <section id="left">
+        <h2>Team Members</h2>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar.png" alt="Jane" style="width:50%">
+              <div class="container">
+                <h2>Jane Doe</h2>
+                <!-- <p class="title">CEO & Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar2.png" alt="Mike" style="width:50%">
+              <div class="container">
+                <h2>Mike Ross</h2>
+                <!-- <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar.jpg" alt="John" style="width:50%">
+              <div class="container">
+                <h2>John Doe</h2>
+                <!-- <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>Supervisor</h2>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <img src="/img/avatar.png" alt="Jane" style="width:50%">
+              <div class="container">
+                <h2>Jane Doe</h2>
+                <!-- <p class="title">CEO & Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="width:700px;height:100px">
+
+        </div>
+
+      </section>
 
     </div>
   </div>

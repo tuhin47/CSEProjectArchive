@@ -7,23 +7,25 @@ var ProjectSchema = mongoose.Schema({
     required: true,
     auto: true,
   },
-  projectname: String,
-  teammembers: String,
+  title: {type:String},
+  coursename:String,
+  teammembers: [String],
+  link:String,
+  description:String
 
 });
 
-var Projects = module.exports = mongoose.model('Projects', ProjectSchema, 'projects');
+var Projects = module.exports = mongoose.model('Projects', ProjectSchema);
 
 /* test*/
-/*
-var project1 = new Projects({
-  projectname: "test",
-  teammembers: ["2013", "2014"]
-});
 
-project1.save(function(err, results) {
-  console.error(results);
-  console.log(results);
-  if (err) throw err;
-});
-*/
+// var project = new Projects({
+//   title: "test",
+// //  teammembers: ["2013", "2014"]
+// });
+//
+// project.save(function(err, results) {
+//   if(err) console.error(err);
+//   console.log(results);
+//   if (err) throw err;
+// });
