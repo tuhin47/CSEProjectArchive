@@ -6,22 +6,40 @@ exports.addproject = function(req, res, next) {
 
   var title = req.body.title;
   var coursename = req.body.coursename;
-  var teammembers;
-  for (var i = 0; i < req.body.length; i++) {
-    teammembers.push();
+  var link = req.body.link;
+  var description = req.body.description;
+  var teammembers = [];
+  for (var i = 0; i < 100; i++) {
+    var temp = 'field' + i;
+    if (req.body[temp]) {
+      teammembers.push(req.body[temp]);
+      // console.log(req.body[temp]);
+    }
   }
-
-  var link = req.body.title;
-  var description = req.body.title;
-  var project1 = new Projects({
-    projectname: "test",
-    teammembers: ["2013", "2014"]
+  var project = new Projects({
+    title: "title",
+    coursename:"coursename",
+    teammembers: "teammembers",
+    link:"link",
+    description:"description"
+  //  teammembers: ["2013", "2014"]
   });
 
-  project1.save(function(err, results) {
-    console.error(results);
+  project.save(function(err, results) {
+    if(err) console.error(err);
     console.log(results);
     if (err) throw err;
+  });
+
+  res.send(title + "  " + coursename + "  " + link + "  " + description + "  " + teammembers);
+
+  //console.log(teammembers.length);
+
+
+  project.save(function(err, results) {
+    if (err) console.log(err);
+    //console.log(results._id);
+    res.redirect("/");
   });
 
 };

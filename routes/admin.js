@@ -4,6 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 var Admin = require('../models/admin');
+var Auth = require('../controllers/authcontroller');
 /* GET home page. */
 
 
@@ -25,44 +26,20 @@ router.get('/signup', function(req, res, next) {
   });
 });
 
-router.post('/signup', function(req, res) {
+router.post('/signup',Auth.signup);
 
-  var email = req.body.email;
-  var password = req.body.password;
-  Admin.find({
-    email: email
-  }, function(err, results) {
-    if (err) return console.error(err);
-
-    console.log(results);
-    if (results.length > 0) {
-      var usernameproblem = 'Username is not unique, take a new one';
-      req.flash('error_msg', 'Username is not unique, create a new one');
-      res.redirect('/demo');
-      console.log('ok huh');
-    } else {
-      var newAdmin = new Admin({
-        email: email,
-        password: password
-      });
-
-      Admin.createUser(newAdmin, function(err, user) {
-        if (err) throw err;
-        console.log(user);
-        console.log('these datas are uploaded');
-      });
-
-      //req.flash('success_msg', 'You are register and can now login');
-
-      res.redirect('/');
-      console.log('Passed');
-
-    }
-  });
-
-
-  //res.redirect('login');
-
+// GET /logout
+router.get('/logout', function(req, res, next) {
+  if (req.session) {
+    // delete session object
+    req.session.destroy(function(err) {
+      if(err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
+  }
 });
 
 passport.use(new LocalStrategy(
