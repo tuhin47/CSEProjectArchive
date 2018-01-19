@@ -2,20 +2,29 @@
 <html lang="en">
 
 <head>
-  <title>Info</title>
+  <title>Search</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/uniform.css">
+  <link rel="stylesheet" href="css/select2.css">
+  <link rel="stylesheet" href="css/matrix-style.css">
+  <link rel="stylesheet" href="css/matrix-media.css">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet" type="text/css">
+
+
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"> -->
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/students.css" type="text/css" media="all">
 
-  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-
 </head>
 
 <body id="page1">
@@ -24,23 +33,17 @@
     <header>
       <div class="container">
         <h1><a href="#">CSE Project Archive</a></h1>
-        <nav>
+        <%include partials/topnavbar.ejs%>
+
+        <!-- <nav>
           <ul>
             <li><a href="/index" class="m1">Home Page</a></li>
             <li><a href="/subjects" class="m2">Subjects</a></li>
-            <li><a href="/batches" class="m3">Batches</a></li>
+            <li class="current"><a href="/batches" class="m3">Batches</a></li>
             <li><a href="/projects" class="m4">Projects</a></li>
             <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
           </ul>
-        </nav>
-
-        <form action="#" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="#">Search</a></div>
-          </fieldset>
-        </form>
+        </nav> -->
       </div>
     </header>
     <div class="container">
@@ -52,71 +55,14 @@
           <li><span><a href="/batches">Batches</a></span></li>
           <li><span><a href="/projects">All projects</a></span></li>
           <li><span><a href="/students">Student Info</a></span></li>
-          <li><span><a href="/teachers">Teachers</a></span></li>
+          <li><span><a id="selected"  href="/teachers/findteachers">Teachers</a></span></li>
           <li><span><a href="/admin">Administrators</a></span></li>
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
-      <div class="multiple-borders">
-        <%if(results[0].propic){
-console.log(results[0].propic);
-          %>
-          <img src="profile/<%=results[0].propic%>" />
-          <%} else {%>
-            <img src="img/avatar.jpg%>" />
-
-            <%}%>
-      </div>
-      <section id="content">
-        <div id="basicpostion">
-          <h3  id="basic">Basic Information</h3>
-        </div>
-
-
-        <table class="blueTable">
-
-          <tbody>
-
-            <tr>
-              <td>Name :</td>
-              <td>
-                <%=results[0].name%>
-              </td>
-            </tr>
-            <tr>
-              <td>Registration Number:</td>
-              <td>
-                <%=results[0].reg%>
-              </td>
-            </tr>
-            <tr>
-              <td>Email :</td>
-              <td>
-                <%=results[0].email%>
-              </td>
-            </tr>
-            <tr>
-              <td>Git :</td>
-              <td>
-                <a href="https://github.com/<%=results[0].git%>">
-                  <%=results[0].git%>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>LinkedIn :</td>
-              <td>
-                <a href="http://www.linkedin.com">
-                  <%=results[0].linkedin%>
-                </a>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-
+      <section id="content" style=" width: 700px;">
+        <%include partials/teacherstable.ejs%>
       </section>
-
 
     </div>
   </div>

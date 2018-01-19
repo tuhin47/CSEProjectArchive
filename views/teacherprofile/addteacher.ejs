@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Add</title>
+  <title>AddTeacher</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -101,38 +101,25 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
-      <form action="/upload/data" class="form-horizontal" method="POST" enctype="multipart/form-data">
+      <form action="/teachers/addteacher" class="form-horizontal" method="POST" enctype="multipart/form-data">
         <section id="addContent">
           <div class="widget-box">
             <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-              <h3>Student-info</h3>
+              <h3>Teacher-info</h3>
             </div>
             <div class="widget-content nopadding">
 
-
-              <div class="control-group">
-                <label class="control-label">Registration Number:</label>
-                <div class="controls">
-                  <input required type="number" name="reg" class="span3" min=2000000000 max=2025000000 placeholder="201XXXXXXX" />
-                </div>
-              </div>
               <div class="control-group">
                 <label class="control-label">Full Name :</label>
                 <div class="controls">
                   <input required type="text" name="name" class="span3" placeholder="Full name" />
                 </div>
               </div>
+
               <div class="control-group">
-                <label class="control-label">Academic Session :</label>
+                <label class="control-label">Designation :</label>
                 <div class="controls">
-                  <select name="session" class="span2">
-
-                        <option value="2013">2013-14</option>
-                        <option value="2014">2014-15</option>
-                        <option value="2015">2015-16</option>
-                        <option value="2016">2016-17</option>
-                      </select>
-
+                  <input required type="text" name="designation" class="span3" placeholder="Designation" />
                 </div>
               </div>
 
@@ -143,20 +130,27 @@
                 </div>
               </div>
 
-
               <div class="control-group">
-                <label class="control-label">Git Account:</label>
+                <label class="control-label">Contact Number :</label>
                 <div class="controls">
-                  <input type="text" class="span3" name="git" value="https://github.com/"  />
+                  <input required type="text" name="contactno" class="span3" placeholder="contact number" />
                 </div>
               </div>
 
               <div class="control-group">
-                <label class="control-label">Linkedin Account:</label>
+                <label class="control-label">Room No. :</label>
                 <div class="controls">
-                  <input type="text" class="span3" name="linkedin" placeholder="www.linkedin.com/" />
+                  <input required type="text" name="roomno" class="span3" placeholder="contact room no" />
                 </div>
               </div>
+
+              <div class="control-group">
+                <label class="control-label">Official Details Link :</label>
+                <div class="controls">
+                  <input required type="text" name="details" class="span3" placeholder="Link of details" />
+                </div>
+              </div>
+
 
 
               <div class="form-actions">
@@ -177,7 +171,8 @@
             Resize image
           </div> -->
             <!-- <input type="range" class="cropit-image-zoom-input"> -->
-            <input name="propic" type="file" class="cropit-image-input" required>
+            <h4>pixels 600*400 recommended</h4>
+            <input name="propic" type="file" class="cropit-image-input">
             <!--
           <button class="rotate-ccw">Rotate counterclockwise</button>
           <button class="rotate-cw">Rotate clockwise</button> -->
@@ -205,7 +200,7 @@
     $(function() {
       $('.image-editor').cropit({
         imageState: {
-          src: 'img/1.jpg',
+          src: 'img/2.jpg',
         },
       });
       $('.rotate-cw').click(function() {

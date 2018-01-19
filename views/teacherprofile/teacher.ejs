@@ -61,7 +61,7 @@
         <%if(results[0].propic){
 console.log(results[0].propic);
           %>
-          <img src="profile/<%=results[0].propic%>" />
+          <img src="teacher/<%=results[0].propic%>" />
           <%} else {%>
             <img src="img/avatar.jpg%>" />
 
@@ -69,7 +69,7 @@ console.log(results[0].propic);
       </div>
       <section id="content">
         <div id="basicpostion">
-          <h3  id="basic">Basic Information</h3>
+          <h3>Teacher info</h3>
         </div>
 
 
@@ -84,9 +84,9 @@ console.log(results[0].propic);
               </td>
             </tr>
             <tr>
-              <td>Registration Number:</td>
+              <td>Design. :</td>
               <td>
-                <%=results[0].reg%>
+                <%=results[0].designation%>
               </td>
             </tr>
             <tr>
@@ -96,27 +96,45 @@ console.log(results[0].propic);
               </td>
             </tr>
             <tr>
-              <td>Git :</td>
+              <td>Contact :</td>
               <td>
-                <a href="https://github.com/<%=results[0].git%>">
-                  <%=results[0].git%>
-                </a>
+                <%=results[0].contactno%>
               </td>
             </tr>
             <tr>
-              <td>LinkedIn :</td>
+              <td>Room No :</td>
               <td>
-                <a href="http://www.linkedin.com">
-                  <%=results[0].linkedin%>
-                </a>
+                <%=results[0].roomno%>
               </td>
             </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <input class="btn btn-success" type="button" value="More Info" onclick="window.open('<%=results[0].details%>')" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <a class="btn btn-xs btn-warning btn-edit" href="/teachers/edit/<%=results[0]._id %>">Edit</a>
+                <a class="btn btn-xs btn-danger btn-delete" href="/teachers/delete/<%=results[0]._id %>">Delete</a>
+                <!-- <input onclick='/teachers/edit/<%results[0]._id%>' class="btn btn-warning" type="button" value="Edit" />
+                <input href='/teachers/delete/<%results[0]._id%>' class="btn btn-danger" type="button" value="Delete" /> -->
+              </td>
+            </tr>
+
+
 
           </tbody>
         </table>
 
       </section>
-
+      <!-- <div class="container">
+        <button class="button button2">More Info</button>
+        <button class="btn btn-warning">Edit</button>
+        <button class="btn btn-warning">Delete</button>
+      </div> -->
 
     </div>
   </div>

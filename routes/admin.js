@@ -3,8 +3,11 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
+var Admin_controller = require('../controllers/admin_controller');
+
 var Admin = require('../models/admin');
 var Auth = require('../controllers/authcontroller');
+
 /* GET home page. */
 
 
@@ -74,5 +77,6 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+router.get('/dashboard',Admin_controller.dashboard);
 
 module.exports = router;

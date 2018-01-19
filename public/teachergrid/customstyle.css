@@ -24,7 +24,7 @@ html, body {
 
 .container {
   margin: 0 auto;
-  width: 990px;
+  width: 960px;
   overflow: hidden;
   font-size: .875em;
   padding-bottom: 176px;
@@ -88,7 +88,7 @@ aside {
   height: 100%;
   min-height: 100%;
   background: url(../images/tail-middle.jpg) repeat-y center 194px;
-  min-width: 940px;
+  min-width: 960px;
 }
 
 input, select, textarea {
@@ -177,10 +177,7 @@ fieldset {
   padding-top: 18px;
 }
 
-.articles li img {
-  float: left;
-  margin-right: 22px;
-}
+
 
 .sitemap {
   padding-bottom: 15px;
@@ -225,17 +222,8 @@ fieldset {
   margin: 0;
 }
 
-.img-box {
-  width: 100%;
-  overflow: hidden;
-  padding-bottom: 20px;
-  line-height: 1.429em;
-}
 
-.img-box img {
-  float: left;
-  margin: 0 20px 0 0;
-}
+
 
 .extra-wrap {
   overflow: hidden;
