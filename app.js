@@ -51,6 +51,7 @@ app.set('views', [path.join(__dirname, 'views'),
                   path.join(__dirname, 'views/addform'),
                   path.join(__dirname, 'views/teacherprofile'),
                   path.join(__dirname, 'views/admin'),
+                  path.join(__dirname, 'views/projects'),
 
 ]);
 app.set('view engine', 'ejs');

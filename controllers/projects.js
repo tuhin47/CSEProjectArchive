@@ -1,6 +1,20 @@
 var Projects = require('../models/project');
 
-
+exports.showproject = function(req, res, next) {
+  Projects.find({
+      _id: req.params.id
+    },
+    function(err, results) {
+      if (err) throw err;
+      if (results.toString() === '') {
+        res.redirect('/projects');
+      }
+      console.log(results);
+      res.render('project', {
+        results: results
+      });
+    });
+}
 
 exports.addproject = function(req, res, next) {
 
@@ -31,7 +45,7 @@ exports.addproject = function(req, res, next) {
     res.redirect("/");
   });
 
-//  res.send(title + "  " + coursename + "  " + link + "  " + description + "  " + teammembers);
+  //  res.send(title + "  " + coursename + "  " + link + "  " + description + "  " + teammembers);
 
 
 };
