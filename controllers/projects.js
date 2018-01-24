@@ -1,6 +1,22 @@
 var Projects = require('../models/project');
 
-exports.showproject = function(req, res, next) {
+
+exports.findProjects = function(req, res) {
+  Projects.find({}, function(err, results) {
+    if (err) return console.error(err);
+    else if (results.length >= 0) {
+      console.log("in teacherprofile");
+      console.log(results);
+      res.render('recentProjects', {
+        results: results
+      });
+    }
+
+  });
+
+};
+
+exports.showProject = function(req, res, next) {
   Projects.find({
       _id: req.params.id
     },
@@ -14,7 +30,7 @@ exports.showproject = function(req, res, next) {
         results: results
       });
     });
-}
+};
 
 exports.addproject = function(req, res, next) {
 

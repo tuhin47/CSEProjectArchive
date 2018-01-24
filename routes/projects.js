@@ -1,18 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var projects = require('../controllers/projects');
+var Projects = require('../controllers/projects');
 /* GET home page. */
-router.get('/:id', projects.showproject);
 
+router.get('/',Projects.findProjects);
+// router.get('/projects', projects.showproject);
 
 router.get('/add', function(req, res) {
   res.render('addproject');
 });
-router.post('/add', projects.addproject);
+router.post('/add', Projects.addproject);
 
-router.get('/test', function(req, res) {
-  res.render('demopic');
-});
+router.get('/:id',Projects.showProject);
 
 
 /*test purpose*/

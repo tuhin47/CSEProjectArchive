@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "bcrypt-nodejs": "latest",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.18.2",
     "connect-flash": "~0.1.1",
     "cookie-parser": "~1.4.3",
@@ -17,10 +17,10 @@
     "express-session": "*",
     "fs": "0.0.1-security",
     "gridfs-stream": "*",
+    "jquery-paginate": "^1.0.1",
     "mongodb": "*",
     "mongoose": "*",
     "morgan": "~1.0.0",
-    "sort-json-array": "^0.1.7",
     "multer": "latest",
     "nodemailer": "^4.4.0",
     "passport": "~0.3.2",
@@ -28,6 +28,7 @@
     "passport-google-oauth": "~1.0.0",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.4",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "sort-json-array": "^0.1.7"
   }
 }
