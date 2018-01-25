@@ -129,13 +129,15 @@
                   <div class="row pt-md">
                     <%
                     for(var i=0;i<results[0].teammembers.length;i++){%>
-                      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                        <div class="img-box">
-                          <img src="profile/<%=members[i].propic%>" class="img-responsive">
-                        </div>
-                        <h1><%=members[i].reg%></h1>
+                      <a href="/students/<%=members[i].reg%>">
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                          <div class="img-box">
+                            <img src="profile/<%=members[i].propic%>" class="img-responsive">
+                          </div>
+                          <h1><%=members[i].reg%></h1>
 
-                      </div>
+                        </div>
+                      </a>
                       <%}%>
 
                   </div>
