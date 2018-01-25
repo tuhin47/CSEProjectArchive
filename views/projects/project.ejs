@@ -30,8 +30,9 @@
     h1 {
       text-indent: 0px;
     }
-    div#supervisor{
-      margin-top:-40px;
+
+    div#supervisor {
+      margin-top: -40px;
     }
   </style>
 </head>
@@ -81,7 +82,7 @@
               <tr>
                 <td>Batch:</td>
                 <td>
-                  <%=results[0].title%>
+                  <%=results[0].batch%>
                 </td>
               </tr>
               <tr>
@@ -101,11 +102,15 @@
               </tr>
               <tr>
                 <td>Tags:</td>
+
                 <td>
-                  <a href="<%=" tags "%>">
-                    <%="tags"%>
-                  </a>
+                  <%results[0].tags.forEach(function(tag){%>
+                    <a href="<%=" tag "%>">
+                      <%=tag%>
+                    </a>
+                    <%  });%>
                 </td>
+
               </tr>
 
 
@@ -120,15 +125,15 @@
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <div class="col-lg-12">
-                  <h6 class="description">OUR TEAM Members</h6>
+                  <h6 class="description">TEAM Members</h6>
                   <div class="row pt-md">
                     <%
-                    for(var i=0;i<3;i++){%>
+                    for(var i=0;i<results[0].teammembers.length;i++){%>
                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                         <div class="img-box">
-                          <img src="img/1.jpg" class="img-responsive">
+                          <img src="profile/<%=members[i].propic%>" class="img-responsive">
                         </div>
-                        <h1>Marrie Doi</h1>
+                        <h1><%=members[i].reg%></h1>
 
                       </div>
                       <%}%>

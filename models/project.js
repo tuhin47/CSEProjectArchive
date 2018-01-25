@@ -9,7 +9,9 @@ var ProjectSchema = mongoose.Schema({
   },
   title: {type:String},
   coursename:String,
+  batch:String,
   teammembers: [String],
+  tags:[String],
   link:String,
   description:String
 
