@@ -121,6 +121,7 @@ app.use('/teachers/update', express.static(path.join(__dirname, 'public'), optio
 app.use('/admin', express.static(path.join(__dirname, 'public'), options));
 app.use('/admin/dashboard', express.static(path.join(__dirname, 'public'), options));
 app.use('/projects', express.static(path.join(__dirname, 'public'), options));
+app.use('/projects/tags', express.static(path.join(__dirname, 'public'), options));
 
 
 

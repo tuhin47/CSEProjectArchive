@@ -5,6 +5,23 @@ exports.findProjects = function(req, res) {
   Projects.find({}, function(err, results) {
     if (err) return console.error(err);
     else if (results.length >= 0) {
+      console.log(results);
+      res.render('recentProjects', {
+        results: results
+      });
+    }
+
+  });
+
+};
+
+exports.findTagProjects = function(req, res) {
+
+  Projects.find({
+    tags: req.params.tag
+  }, function(err, results) {
+    if (err) return console.error(err);
+    else if (results.length >= 0) {
       console.log("in teacherprofile");
       console.log(results);
       res.render('recentProjects', {
@@ -39,7 +56,7 @@ exports.showProject = function(req, res, next) {
         console.log(members);
         res.render('project', {
           results: results,
-          members:members
+          members: members
         });
 
       });
@@ -56,6 +73,7 @@ exports.addproject = function(req, res, next) {
   var link = req.body.link;
   var description = req.body.description;
   var teammembers = [];
+  var supervisor = req.body.supervisor;
   var tags = [];
   for (var i = 0; i < 100; i++) {
     var temp = 'field' + i;
@@ -76,6 +94,7 @@ exports.addproject = function(req, res, next) {
     coursename: coursename,
     batch: batch,
     teammembers: teammembers,
+    supervisor: supervisor,
     tags: tags,
     link: link,
     description: description

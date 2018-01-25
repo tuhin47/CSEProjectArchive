@@ -16,6 +16,6 @@ router.get('/table', function(req, res, next) {
 });
 
 router.get('/demo', function(req, res, next) {
-  res.render('addproject');
+  res.render('');
 });
 module.exports = router;

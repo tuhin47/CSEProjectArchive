@@ -13,16 +13,13 @@
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/addproject.css">
 
-  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -84,17 +81,17 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" >Course Name</label>
+              <label class="col-md-4 control-label">Course Name</label>
               <div class="col-md-4">
-                <input  name="coursename" type="text" placeholder="Course Name" class="form-control input-md">
+                <input name="coursename" type="text" placeholder="Course Name" class="form-control input-md">
 
               </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" >Batch</label>
+              <label class="col-md-4 control-label">Batch</label>
               <div class="col-md-4">
-                <input  name="batch" type="text" placeholder="2013" class="form-control input-md">
+                <input name="batch" type="text" placeholder="2013" class="form-control input-md">
 
               </div>
             </div>
@@ -109,6 +106,18 @@
                   <button id="b1" class="btn add-more" type="button">+</button>
                 </div>
 
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Supervisor</label>
+              <div class="col-md-6">
+                <select class="form-control">
+                <%for (var teacher in results) {%>
+                  <option><%=results[teacher].name%>-<%=results[teacher].designation%></option>
+                <%}%>
+
+						</select>
               </div>
             </div>
 
