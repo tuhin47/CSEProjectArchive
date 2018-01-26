@@ -112,9 +112,9 @@
             <div class="form-group">
               <label class="col-md-4 control-label">Supervisor</label>
               <div class="col-md-6">
-                <select class="form-control">
+                <select name="supervisor" class="form-control">
                 <%for (var teacher in results) {%>
-                  <option><%=results[teacher].name%>-<%=results[teacher].designation%></option>
+                  <option value="<%=results[teacher]%>"><%=results[teacher].name%>-<%=results[teacher].designation%></option>
                 <%}%>
 
 						</select>

@@ -53,7 +53,8 @@ exports.showProject = function(req, res, next) {
         $or: users
       }, function(err, members) {
         if (err) throw err;
-        console.log(members);
+          var temp=JSON.stringify(results[0].supervisor);
+        console.log(temp);
         res.render('project', {
           results: results,
           members: members
@@ -75,6 +76,8 @@ exports.addproject = function(req, res, next) {
   var teammembers = [];
   var supervisor = req.body.supervisor;
   var tags = [];
+  console.log("=========================================");
+  console.log(supervisor);
   for (var i = 0; i < 100; i++) {
     var temp = 'field' + i;
     if (req.body[temp]) {
