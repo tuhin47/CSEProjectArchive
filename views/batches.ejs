@@ -2,13 +2,24 @@
 <html lang="en">
 
 <head>
-  <title>Project</title>
+  <title>Search</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/uniform.css">
+  <link rel="stylesheet" href="css/select2.css">
+  <link rel="stylesheet" href="css/matrix-style.css">
+  <link rel="stylesheet" href="css/matrix-media.css">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"> -->
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
@@ -22,23 +33,17 @@
     <header>
       <div class="container">
         <h1><a href="#">CSE Project Archive</a></h1>
-        <nav>
+        <%include partials/topnavbar.ejs%>
+
+        <!-- <nav>
           <ul>
             <li><a href="/index" class="m1">Home Page</a></li>
-            <li ><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
             <li class="current"><a href="/batches" class="m3">Batches</a></li>
             <li><a href="/projects" class="m4">Projects</a></li>
             <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
           </ul>
-        </nav>
-
-        <form action="#" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="#">Search</a></div>
-          </fieldset>
-        </form>
+        </nav> -->
       </div>
     </header>
     <div class="container">
@@ -55,6 +60,9 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
+      <section id="content" style=" width: 700px;">
+        <%include partials/batchTable.ejs%>
+      </section>
 
     </div>
   </div>
@@ -68,6 +76,8 @@
   <script type="text/javascript">
     Cufon.now();
   </script>
+
+
   <!-- END PAGE SOURCE -->
 </body>
 

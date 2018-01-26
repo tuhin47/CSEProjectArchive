@@ -4,92 +4,93 @@
 <head>
   <title>Project</title>
   <meta charset="utf-8">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+  <link href="css/modal.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+
   <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-
 </head>
+<%include partials/loginModel.ejs%>
 
-<body id="page1">
-  <!-- START PAGE SOURCE -->
-  <div class="wrap">
-    <header>
-      <div class="container">
-        <h1><a href="#">CSE Project Archive</a></h1>
-        <nav>
-          <ul>
-            <li class="current"><a href="/index" class="m1">Home Page</a></li>
-            <li><a href="/subjects" class="m2">Subjects</a></li>
-            <li><a href="/batches" class="m3">Batches</a></li>
-            <li><a href="/projects" class="m4">Projects</a></li>
-            <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
-          </ul>
-        </nav>
+  <body id="page1">
+    <!-- START PAGE SOURCE -->
+    <div class="wrap">
+      <header>
+        <div class="container">
+          <h1><a href="#">CSE Project Archive</a></h1>
+          <nav>
+            <ul>
+              <li class="current"><a href="/index" class="m1">Home Page</a></li>
+              <li><a href="/subjects" class="m2">Subjects</a></li>
+              <li><a href="/batches" class="m3">Batches</a></li>
+              <li><a href="/projects" class="m4">Projects</a></li>
+              <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+            </ul>
+          </nav>
 
-        <form action="#" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="#">Search</a></div>
-          </fieldset>
-        </form>
-      </div>
-    </header>
-    <div class="container">
-      <aside>
-        <h3>Categories</h3>
-        <ul class="categories">
-          <li><span><a id="selected" href="/index">Home</a></span></li>
-          <li><span><a href="/subjects">Subjects</a></span></li>
-          <li><span><a href="/batches">Batches</a></span></li>
-          <li><span><a href="/projects">All projects</a></span></li>
-          <li><span><a href="/students">Student Info</a></span></li>
-          <li><span><a href="/teachers">Teachers</a></span></li>
-          <li><span><a href="/admin">Administrators</a></span></li>
-          <li class="last"><span><a href="/contact">About Us</a></span></li>
-        </ul>
-      </aside>
-      <section id="content">
-        <div id="banner">
-          <% include partials/animatedslide.ejs%>
+          <form action="/search" id="search-form">
+            <fieldset>
+              <div class="rowElem">
+                <input type="text">
+                <a href="/search">Search</a></div>
+            </fieldset>
+          </form>
         </div>
-        <div class="inside">
-          <h2>Recent <span>Projects</span></h2>
-          <ul class="list">
-            <li><span><img src="images/icon1.png"></span>
-              <h4>Student Academic Profile</h4>
-              <p>This is a web application.Working with jsp,servlet</p>
-            </li>
-            <li><span><img src="images/icon2.png"></span>
-              <h4>Physics Equation Solver</h4>
-              <p>This is a java project.Working with javafx</p>
-            </li>
-            <li class="last"><span><img src="images/icon3.png"></span>
-              <h4>Flood Fighter</h4>
-              <p>This is a web based application.Working with hibernate</p>
-            </li>
+      </header>
+      <div class="container">
+        <aside>
+          <h3>Categories</h3>
+          <ul class="categories">
+            <li><span><a id="selected" href="/index">Home</a></span></li>
+            <li><span><a href="/subjects">Subjects</a></span></li>
+            <li><span><a href="/batches">Batches</a></span></li>
+            <li><span><a href="/projects">All projects</a></span></li>
+            <li><span><a href="/students">Student Info</a></span></li>
+            <li><span><a href="/teachers/findteachers">Teachers</a></span></li>
+            <li><span><a data-toggle="modal" href="demopic#myModal"> Admin Login</a></span></li>
+            <li class="last"><span><a href="/contact">About Us</a></span></li>
           </ul>
-      </section>
+        </aside>
+        <section id="content">
+          <div id="banner">
+            <% include partials/animatedslide.ejs%>
+          </div>
+          <div class="inside">
+            <h2>Recent <span>Projects</span></h2>
+            <ul class="list">
+              <li><span><img src="images/icon1.png"></span>
+                <h4>Student Academic Profile</h4>
+                <p>This is a web application.Working with jsp,servlet</p>
+              </li>
+              <li><span><img src="images/icon2.png"></span>
+                <h4>Physics Equation Solver</h4>
+                <p>This is a java project.Working with javafx</p>
+              </li>
+              <li class="last"><span><img src="images/icon3.png"></span>
+                <h4>Flood Fighter</h4>
+                <p>This is a web based application.Working with hibernate</p>
+              </li>
+            </ul>
+        </section>
+        </div>
       </div>
-    </div>
-    <footer>
-      <div class="footerlink">
-        <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
-        <p class="rf">Design by <a href="#">SUST</a></p>
-        <div style="clear:both;"></div>
-      </div>
-    </footer>
-    <script type="text/javascript">
-      Cufon.now();
-    </script>
-    <!-- END PAGE SOURCE -->
-</body>
+      <footer>
+        <div class="footerlink">
+          <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+          <p class="rf">Design by <a href="#">SUST</a></p>
+          <div style="clear:both;"></div>
+        </div>
+      </footer>
+      <script type="text/javascript">
+        Cufon.now();
+      </script>
+      <!-- END PAGE SOURCE -->
+  </body>
 
 </html>

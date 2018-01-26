@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var batch = require('../controllers/batchcontroller');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('batches', { title: 'Express' });
-});
+router.get('/',batch.data);
 
 module.exports = router;

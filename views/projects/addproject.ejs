@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Project</title>
+  <meta charset="utf-8">
+
+
+
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/addproject.css">
+
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/cufon-replace.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body id="page1">
+  <!-- START PAGE SOURCE -->
+
+  <div class="wrap">
+    <header>
+      <div class="container">
+        <h1><a href="#">CSE Project Archive</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/index" class="m1">Home Page</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/batches" class="m3">Batches</a></li>
+            <li class="current"><a href="/projects" class="m4">Projects</a></li>
+            <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <!-- <form action="/search" id="search-form">
+          <fieldset>
+            <div class="rowElem">
+              <input type="text">
+              <a href="/search">Search</a></div>
+          </fieldset>
+        </form> -->
+      </div>
+    </header>
+    <div class="container">
+      <aside>
+        <h3>Categories</h3>
+        <ul class="categories">
+          <li><span><a href="/index">Home</a></span></li>
+          <li><span><a href="/subjects">Subjects</a></span></li>
+          <li><span><a href="/batches">Batches</a></span></li>
+          <li><span><a id="selected" href="/projects">All projects</a></span></li>
+          <li><span><a href="/students">Student Info</a></span></li>
+          <li><span><a href="/teachers">Teachers</a></span></li>
+          <li><span><a href="/admin">Administrators</a></span></li>
+          <li class="last"><span><a href="/contact">About Us</a></span></li>
+        </ul>
+      </aside>
+      <section id="addproject">
+
+        <form class="form-horizontal" action="/projects/add" method="post">
+          <fieldset>
+
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="title">Project Title</label>
+              <div class="col-md-4">
+                <input id="title" name="title" type="text" placeholder="Give a title" class="form-control input-md" required>
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Course Name</label>
+              <div class="col-md-4">
+                <input name="coursename" type="text" placeholder="Course Name" class="form-control input-md">
+
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Batch</label>
+              <div class="col-md-4">
+                <input name="batch" type="text" placeholder="2013" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Appended Input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="appendedtext">Team Member</label>
+              <div class="col-md-6">
+
+                <div id="field">
+                  <input autocomplete="off" class="input form-control" id="field1" name="field1" type="text" placeholder="Registration Number" data-items="8" />
+                  <button id="b1" class="btn add-more" type="button">+</button>
+                </div>
+
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Supervisor</label>
+              <div class="col-md-6">
+                <select class="form-control">
+                <%for (var teacher in results) {%>
+                  <option><%=results[teacher].name%>-<%=results[teacher].designation%></option>
+                <%}%>
+
+						</select>
+              </div>
+            </div>
+
+            <!-- Appended Input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="appendedtext">Tags</label>
+              <div class="col-md-6">
+
+                <div id="tag">
+                  <input autocomplete="off" class="input form-control" id="tag1" name="tag1" type="text" placeholder="Tag" data-items="8" />
+                  <button id="tb1" class="btn add-more-tag" type="button">+</button>
+                </div>
+
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="link">Project Link</label>
+              <div class="col-md-4">
+                <input id="link" name="link" type="text" placeholder="give a project link" class="form-control input-md">
+
+              </div>
+            </div>
+
+
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="description">Project Description</label>
+              <div class="col-md-6">
+                <textarea class="form-control" id="description" name="description" placeholder="Give a short description"></textarea>
+              </div>
+            </div>
+
+          </fieldset>
+          <div class="form-actions">
+            <button ype="submit" class="btn btn-success" style="float:right;">Submit</button>
+          </div>
+        </form>
+
+      </section>
+
+    </div>
+  </div>
+  <footer>
+    <div class="footerlink">
+      <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+      <p class="rf">Design by <a href="#">SUST</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    Cufon.now();
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var next = 1;
+      $(".add-more-tag").click(function(e) {
+        e.preventDefault();
+        var addto = "#tag" + next;
+        var addRemove = "#tag" + (next);
+        next = next + 1;
+        var newIn = '<input  autocomplete="off" class="input form-control" placeholder="Tag" id="tag' + next + '" name="tag' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me-tag" >-</button></div><div id="tag">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#tag" + next).attr('data-source', $(addto).attr('data-source'));
+        $("#count").val(next);
+
+        $('.remove-me-tag').click(function(e) {
+          e.preventDefault();
+          var fieldNum = this.id.charAt(this.id.length - 1);
+          var fieldID = "#tag" + fieldNum;
+          $(this).remove();
+          $(fieldID).remove();
+        });
+      });
+
+    });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var next = 1;
+      $(".add-more").click(function(e) {
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = '<input  autocomplete="off" class="input form-control" placeholder="Registration Number" id="field' + next + '" name="field' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source', $(addto).attr('data-source'));
+        $("#count").val(next);
+
+        $('.remove-me').click(function(e) {
+          e.preventDefault();
+          var fieldNum = this.id.charAt(this.id.length - 1);
+          var fieldID = "#field" + fieldNum;
+          $(this).remove();
+          $(fieldID).remove();
+        });
+      });
+
+    });
+  </script>
+  <!-- <script type="text/javascript" src="extra/jquery.min.js"></script> -->
+
+
+  <!-- END PAGE SOURCE -->
+</body>
+
+</html>
