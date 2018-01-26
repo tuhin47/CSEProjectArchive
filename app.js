@@ -5,6 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+var url = require('url');
+//var sleep=require('sleep');
+var passport = require('passport');
+var fs = require('fs');
+var flash    = require('connect-flash');
 
 var index = require('./routes/index');
 // var users = require('./routes/users');
@@ -18,11 +25,7 @@ var addUser = require('./routes/addUser');
 var students = require('./routes/students');
 var admin = require('./routes/admin');
 var demopic = require('./routes/demopic');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var url = require('url');
-//var sleep=require('sleep');
-var fs = require('fs');
+
 var dir = 'public/profile';
 
 
@@ -48,12 +51,26 @@ app.set('views', [path.join(__dirname, 'views'),
                   path.join(__dirname, 'views/addform'),
                   path.join(__dirname, 'views/teacherprofile'),
                   path.join(__dirname, 'views/admin'),
+                  path.join(__dirname, 'views/projects'),
 
 ]);
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
+// required for passport
+//require('./config/passport')(passport); // pass passport for configuration
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -83,7 +100,6 @@ app.use('/addUser', addUser);
 app.use('/adduser', addUser);
 app.use('/students', students);
 app.use('/admin', admin);
-
 app.use('/demopic', demopic);
 app.use('/teachers',teachers);
 
@@ -104,6 +120,8 @@ app.use('/teachers/update', express.static(path.join(__dirname, 'public'), optio
 
 app.use('/admin', express.static(path.join(__dirname, 'public'), options));
 app.use('/admin/dashboard', express.static(path.join(__dirname, 'public'), options));
+app.use('/projects', express.static(path.join(__dirname, 'public'), options));
+app.use('/projects/tags', express.static(path.join(__dirname, 'public'), options));
 
 
 
@@ -124,7 +142,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 
 module.exports = app;

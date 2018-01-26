@@ -1,4 +1,3 @@
-
 var fs = require("fs");
 var mongoose = require('mongoose');
 var sortJsonArray = require('sort-json-array');
@@ -6,13 +5,14 @@ var sortJsonArray = require('sort-json-array');
 var Teachers = require('../models/teacher');
 
 exports.findteacher = function(req, res) {
-  Teachers.find({
-  }, function(err, results) {
+  Teachers.find({}, function(err, results) {
     if (err) return console.error(err);
-    else if (results.length >=0) {
+    else if (results.length >= 0) {
       console.log("in teacherprofile");
       console.log(results);
-      res.render('findteachers',{results:results});
+      res.render('findteachers', {
+        results: results
+      });
     }
 
   });
@@ -21,8 +21,8 @@ exports.findteacher = function(req, res) {
 
 
 exports.teacherprofile = function(req, res, next) {
-  var id=req.params.id;
-  console.log('--------- -> '+id);
+  var id = req.params.id;
+  console.log('--------- -> ' + id);
   Teachers.find({
       _id: id
     },
@@ -32,13 +32,15 @@ exports.teacherprofile = function(req, res, next) {
         res.redirect('/');
       }
       console.log(results);
-      res.render('teacher', {results:results});
+      res.render('teacher', {
+        results: results
+      });
     });
 
 };
 
-exports.editteacherprofile=function(req,res){
-  var id=req.params.id;
+exports.editteacherprofile = function(req, res) {
+  var id = req.params.id;
   Teachers.find({
       _id: id
     },
@@ -46,55 +48,57 @@ exports.editteacherprofile=function(req,res){
       if (err) throw err;
       if (results.toString() === '') {
         res.redirect('/');
-      }else {
+      } else {
         console.log(results);
 
-        res.render('editteacher', {results:results});
+        res.render('editteacher', {
+          results: results
+        });
       }
 
     });
 };
 
-exports.updateteacher=function(req, res) {
-var id=req.params.id;
-var name = req.body.name;
-var designation=req.body.designation;
-var email = req.body.email;
-var contactno=req.body.contactno;
-var roomno=req.body.roomno;
-var details=req.body.details;
+exports.updateteacher = function(req, res) {
+  var id = req.params.id;
+  var name = req.body.name;
+  var designation = req.body.designation;
+  var email = req.body.email;
+  var contactno = req.body.contactno;
+  var roomno = req.body.roomno;
+  var details = req.body.details;
 
-var propic = null;
-if (req.file) {
-  propic = req.session.img;
+  var propic = null;
+  if (req.file) {
+    propic = req.session.img;
 
-}
-if (req.session.img)
-  console.log("***************************" + req.session.img);
-else console.log("=========================");
-console.log('lets print the id '+id );
-console.log("before DB");
-console.log('name---'+name);
-console.log('email---'+email);
-console.log('conta---'+contactno);
-console.log('name---'+roomno);
-console.log('name---'+designation);
-console.log('name---'+propic);
-console.log('details'+ details);
+  }
+  if (req.session.img)
+    console.log("***************************" + req.session.img);
+  else console.log("=========================");
+  console.log('lets print the id ' + id);
+  console.log("before DB");
+  console.log('name---' + name);
+  console.log('email---' + email);
+  console.log('conta---' + contactno);
+  console.log('name---' + roomno);
+  console.log('name---' + designation);
+  console.log('name---' + propic);
+  console.log('details' + details);
 
   var query = {
-    '_id':id
+    '_id': id
   };
 
   Teachers.findOneAndUpdate(query, {
     $set: {
-      name:name,
-      designation:designation,
-      email:email,
-      contactno:contactno,
-      roomno:roomno,
-      details:details,
-      propic:propic
+      name: name,
+      designation: designation,
+      email: email,
+      contactno: contactno,
+      roomno: roomno,
+      details: details,
+      propic: propic
     }
   }, {
     new: true,
@@ -120,7 +124,9 @@ console.log('details'+ details);
           res.redirect('/');
         }
         console.log(results);
-        res.render('teacher', {results:results});
+        res.render('teacher', {
+          results: results
+        });
       });
 
 
@@ -130,12 +136,12 @@ console.log('details'+ details);
 
 
 
-exports.deleteteacherprofile=function(req,res){
-  var id=req.params.id;
+exports.deleteteacherprofile = function(req, res) {
+  var id = req.params.id;
   Teachers.remove({
     _id: id
   }, function(err) {
-    if(err) throw err;
+    if (err) throw err;
     res.redirect('/teachers/findteachers');
   });
 };
@@ -153,11 +159,11 @@ exports.teacherdataupload = function(req, res, next) {
   // gfs = Grid(conn.db);
   console.log('---------------------------->>>>in upload/data post');
   var name = req.body.name;
-  var designation=req.body.designation;
+  var designation = req.body.designation;
   var email = req.body.email;
-  var contactno=req.body.contactno;
-  var roomno=req.body.roomno;
-  var details=req.body.details;
+  var contactno = req.body.contactno;
+  var roomno = req.body.roomno;
+  var details = req.body.details;
 
   var propic = null;
   if (req.file) {
@@ -168,19 +174,19 @@ exports.teacherdataupload = function(req, res, next) {
     console.log("***************************" + req.session.img);
   else console.log("=========================");
   console.log("before DB");
-  console.log('name---'+name);
-  console.log('email---'+email);
-  console.log('conta---'+contactno);
-  console.log('name---'+roomno);
-  console.log('name---'+designation);
-  console.log('name---'+propic);
-  console.log('details'+ details);
+  console.log('name---' + name);
+  console.log('email---' + email);
+  console.log('conta---' + contactno);
+  console.log('name---' + roomno);
+  console.log('name---' + designation);
+  console.log('name---' + propic);
+  console.log('details' + details);
 
 
 
   Teachers.find({
-    email:email,
-    name:name,
+    email: email,
+    name: name,
   }, function(err, results) {
     console.log(results);
     if (err) return console.error(err);
@@ -189,14 +195,14 @@ exports.teacherdataupload = function(req, res, next) {
 
     } else {
       console.log('uploading data---- in post teacherdataupload');
-      var teacher= new Teachers({
-        name:name,
-        designation:designation,
-        email:email,
-        contactno:contactno,
-        roomno:roomno,
-        details:details,
-        propic:propic
+      var teacher = new Teachers({
+        name: name,
+        designation: designation,
+        email: email,
+        contactno: contactno,
+        roomno: roomno,
+        details: details,
+        propic: propic
       });
 
       teacher.save(function(err, results) {
