@@ -57,13 +57,26 @@
           <li class="last"><span><a href="/contact">About Us</a></span></li>
         </ul>
       </aside>
+      <div class="multiple-borders">
+        <%if(results[0].propic){
+console.log(results[0].propic);
+          %>
+          <img src="profile/<%=results[0].propic%>" />
+          <%} else {%>
+            <img src="img/avatar.jpg%>" />
+
+            <%}%>
+      </div>
       <section id="content">
         <div id="basicpostion">
           <h3  id="basic">Basic Information</h3>
         </div>
 
+
         <table class="blueTable">
+
           <tbody>
+
             <tr>
               <td>Name :</td>
               <td>
@@ -101,16 +114,7 @@
 
           </tbody>
         </table>
-        <div class="multiple-borders">
-          <%if(results[0].propic){
-console.log(results[0].propic);
-            %>
-            <img src="profile/<%=results[0].propic%>" />
-            <%} else {%>
-              <img src="img/avatar.jpg%>" />
 
-              <%}%>
-        </div>
       </section>
 
 

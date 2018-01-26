@@ -13,16 +13,13 @@
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/addproject.css">
 
-  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -84,9 +81,17 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="textinput">Course Name</label>
+              <label class="col-md-4 control-label">Course Name</label>
               <div class="col-md-4">
-                <input id="textinput" name="coursename" type="text" placeholder="placeholder" class="form-control input-md">
+                <input name="coursename" type="text" placeholder="Course Name" class="form-control input-md">
+
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Batch</label>
+              <div class="col-md-4">
+                <input name="batch" type="text" placeholder="2013" class="form-control input-md">
 
               </div>
             </div>
@@ -99,6 +104,31 @@
                 <div id="field">
                   <input autocomplete="off" class="input form-control" id="field1" name="field1" type="text" placeholder="Registration Number" data-items="8" />
                   <button id="b1" class="btn add-more" type="button">+</button>
+                </div>
+
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Supervisor</label>
+              <div class="col-md-6">
+                <select name="supervisor" class="form-control">
+                <%for (var teacher in results) {%>
+                  <option value="<%=results[teacher]%>"><%=results[teacher].name%>-<%=results[teacher].designation%></option>
+                <%}%>
+
+						</select>
+              </div>
+            </div>
+
+            <!-- Appended Input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="appendedtext">Tags</label>
+              <div class="col-md-6">
+
+                <div id="tag">
+                  <input autocomplete="off" class="input form-control" id="tag1" name="tag1" type="text" placeholder="Tag" data-items="8" />
+                  <button id="tb1" class="btn add-more-tag" type="button">+</button>
                 </div>
 
               </div>
@@ -140,6 +170,34 @@
   </footer>
   <script type="text/javascript">
     Cufon.now();
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var next = 1;
+      $(".add-more-tag").click(function(e) {
+        e.preventDefault();
+        var addto = "#tag" + next;
+        var addRemove = "#tag" + (next);
+        next = next + 1;
+        var newIn = '<input  autocomplete="off" class="input form-control" placeholder="Tag" id="tag' + next + '" name="tag' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me-tag" >-</button></div><div id="tag">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#tag" + next).attr('data-source', $(addto).attr('data-source'));
+        $("#count").val(next);
+
+        $('.remove-me-tag').click(function(e) {
+          e.preventDefault();
+          var fieldNum = this.id.charAt(this.id.length - 1);
+          var fieldID = "#tag" + fieldNum;
+          $(this).remove();
+          $(fieldID).remove();
+        });
+      });
+
+    });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {

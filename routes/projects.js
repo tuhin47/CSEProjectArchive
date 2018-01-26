@@ -1,20 +1,27 @@
 var express = require('express');
 var router = express.Router();
-var projects= require('../controllers/projects');
+var Projects = require('../controllers/projects');
+var Teachers = require('../models/teacher');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('projects');
-});
+
+router.get('/', Projects.findProjects);
+// router.get('/projects', projects.showproject);
+router.get('/tags/:tag', Projects.findTagProjects);
 
 
 router.get('/add', function(req, res) {
-  res.render('addproject');
-});
-router.post('/add', projects.addproject );
+  Teachers.find({}, function(err, results) {
+    if (err) throw err;
+    //console.log(results);
+    res.render('addproject', {
+      results: results
+    });
+  });
 
-router.get('/test', function(req, res) {
-  res.render('demopic');
 });
+router.post('/add', Projects.addproject);
+
+router.get('/:id', Projects.showProject);
 
 
 /*test purpose*/

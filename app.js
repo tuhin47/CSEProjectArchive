@@ -28,10 +28,17 @@ var demopic = require('./routes/demopic');
 
 var dir = 'public/profile';
 
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+
+var teachers = require('./routes/teachers');
+
+
+
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
 }
-mongoose.connect('mongodb://localhost/cseprojects',{ useMongoClient: true });
+mongoose.connect('mongodb://localhost/cseprojects', {
+  useMongoClient: true
+});
 var db = mongoose.connection;
 
 
@@ -40,8 +47,12 @@ var app = express();
 // view engine setup
 
 app.set('views', [path.join(__dirname, 'views'),
-  path.join(__dirname, 'views/students'),
-  path.join(__dirname, 'views/addform')
+                  path.join(__dirname, 'views/students'),
+                  path.join(__dirname, 'views/addform'),
+                  path.join(__dirname, 'views/teacherprofile'),
+                  path.join(__dirname, 'views/admin'),
+                  path.join(__dirname, 'views/projects'),
+
 ]);
 app.set('view engine', 'ejs');
 
@@ -90,6 +101,7 @@ app.use('/adduser', addUser);
 app.use('/students', students);
 app.use('/admin', admin);
 app.use('/demopic', demopic);
+app.use('/teachers',teachers);
 
 var options = {
   maxAge: '1d',
@@ -97,7 +109,19 @@ var options = {
 app.use(express.static(path.join(__dirname, 'public'), options));
 app.use('/students', express.static(path.join(__dirname, 'public'), options));
 app.use('/students/update', express.static(path.join(__dirname, 'public'), options));
+
+app.use('/teachers', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/addteacher', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/profile', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/findteachers', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/edit', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/delete', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/update', express.static(path.join(__dirname, 'public'), options));
+
+app.use('/admin', express.static(path.join(__dirname, 'public'), options));
+app.use('/admin/dashboard', express.static(path.join(__dirname, 'public'), options));
 app.use('/projects', express.static(path.join(__dirname, 'public'), options));
+app.use('/projects/tags', express.static(path.join(__dirname, 'public'), options));
 
 
 

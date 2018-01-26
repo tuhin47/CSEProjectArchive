@@ -14,12 +14,12 @@
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.15.5",
-    "express-http-proxy": "^1.1.0",
-    "express-session": "^1.15.6",
+    "express-session": "*",
     "fs": "0.0.1-security",
-    "gridfs-stream": "latest",
-    "mongodb": "^2.2.33",
-    "mongoose": "^4.13.5",
+    "gridfs-stream": "*",
+    "jquery-paginate": "^1.0.1",
+    "mongodb": "*",
+    "mongoose": "*",
     "morgan": "~1.0.0",
     "multer": "latest",
     "nodemailer": "^4.4.0",
@@ -28,6 +28,7 @@
     "passport-google-oauth": "~1.0.0",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.4",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "sort-json-array": "^0.1.7"
   }
 }
