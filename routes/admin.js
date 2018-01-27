@@ -20,12 +20,14 @@ function ensureAuthenticated(req, res, next) {
   }
 
 }
-
-router.get('/addbatch', ensureAuthenticated,admin_controller.addBatch);
-router.post('/addbatch', ensureAuthenticated,admin_controller.addBatchpost);
-router.get('/addcourse',ensureAuthenticated, admin_controller.addCourse);
-router.post('/addcourse', ensureAuthenticated,admin_controller.addCoursepost);
-router.get('/dashboard', ensureAuthenticated,admin_controller.dashboard);
+router.get('/', function(req, res) {
+  res.render('admin');
+});
+router.get('/addbatch', ensureAuthenticated, admin_controller.addBatch);
+router.post('/addbatch', ensureAuthenticated, admin_controller.addBatchpost);
+router.get('/addcourse', ensureAuthenticated, admin_controller.addCourse);
+router.post('/addcourse', ensureAuthenticated, admin_controller.addCoursepost);
+router.get('/dashboard', ensureAuthenticated, admin_controller.dashboard);
 
 router.post('/login',
   passport.authenticate('local', {
