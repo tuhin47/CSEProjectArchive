@@ -10,12 +10,22 @@ var Auth = require('../controllers/authcontroller');
 
 /* GET home page. */
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    // req.flash('error_msg', 'You are not logged in');
+    res.redirect('/');
+    //return next();
+  }
 
+}
 
-router.get('/addbatch', admin_controller.addBatch);
-router.post('/addbatch', admin_controller.addBatchpost);
-router.get('/addcourse', admin_controller.addCourse);
-router.post('/addcourse', admin_controller.addCoursepost);
+router.get('/addbatch', ensureAuthenticated,admin_controller.addBatch);
+router.post('/addbatch', ensureAuthenticated,admin_controller.addBatchpost);
+router.get('/addcourse',ensureAuthenticated, admin_controller.addCourse);
+router.post('/addcourse', ensureAuthenticated,admin_controller.addCoursepost);
+router.get('/dashboard', ensureAuthenticated,admin_controller.dashboard);
 
 router.post('/login',
   passport.authenticate('local', {
@@ -83,6 +93,5 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
-router.get('/dashboard', admin_controller.dashboard);
 
 module.exports = router;

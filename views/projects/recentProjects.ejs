@@ -17,7 +17,7 @@
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </head>
-
+<%include partials/loginModel.ejs%>
 <body id="page1">
   <!-- START PAGE SOURCE -->
   <div class="wrap">
@@ -53,7 +53,7 @@
           <li><span><a href="/projects">All projects</a></span></li>
           <li><span><a href="/students">Student Info</a></span></li>
           <li><span><a href="/teachers">Teachers</a></span></li>
-          <li><span><a href="/admin">Administrators</a></span></li>
+          <li><span><a data-toggle="modal" href="demopic#myModal"> Admin Login</a></span></li>
           <li class="last"><span><a id="selected" href="/contact">About Us</a></span></li>
         </ul>
       </aside>
