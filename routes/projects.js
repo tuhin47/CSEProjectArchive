@@ -19,6 +19,7 @@ router.get('/add', function(req, res) {
   });
 
 });
+
 router.post('/add', Projects.addproject);
 
 router.get('/:id', Projects.showProject);
