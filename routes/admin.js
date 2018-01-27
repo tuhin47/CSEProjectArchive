@@ -17,7 +17,7 @@ router.post('/login',
     failureFlash: true
   }),
   function(req, res) {
-    res.send("DONE");
+    res.redirect('/admin/dashboard');
     // res.redirect('/');
   //  res.redirect('/');
   });

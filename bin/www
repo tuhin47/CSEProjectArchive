@@ -12,10 +12,12 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8888');
+var port = normalizePort(process.env.PORT || '8880');
 app.set('port', port);
 
 console.log("Port: "+port);
+console.log('----------Go to----------');
+console.log('localhost:'+port);
 /**
  * Create HTTP server.
  */
