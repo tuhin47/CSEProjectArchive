@@ -1,9 +1,15 @@
 var Courses = require('../models/course');
 var Batches = require('../models/batch');
+var Projects = require('../models/project');
 
 
 exports.dashboard = function(req, res, next) {
-  res.render('dashboard');
+  Projects.find({}, function(err, results) {
+    if (err) throw err;
+    res.render('dashboard', {
+      results: results
+    });
+  });
 };
 
 exports.addBatch = function(req, res) {
