@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
   },
   filename: function(req, file, cb) {
 
-    var imgname = '201788992784687614813'+req.body.contactno + '-' + new Date().getTime() + path.extname(file.originalname);
+    var imgname = '201788992784687614813' + req.body.contactno + '-' + new Date().getTime() + path.extname(file.originalname);
     req.session.img = imgname;
     cb(null, imgname);
 
@@ -30,15 +30,25 @@ var teacher = multer({
 });
 
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    // req.flash('error_msg', 'You are not logged in');
+    res.redirect('/');
+    //return next();
+  }
+
+}
 
 
-router.get('/findteachers',teachers_controllers.findteacher);
-router.get('/profile/:id',teachers_controllers.teacherprofile);
-router.get('/edit/:id',teachers_controllers.editteacherprofile);
-router.get('/delete/:id',teachers_controllers.deleteteacherprofile);
+router.get('/findteachers', teachers_controllers.findteacher);
+router.get('/profile/:id', teachers_controllers.teacherprofile);
+router.get('/edit/:id', ensureAuthenticated,teachers_controllers.editteacherprofile);
+router.get('/delete/:id', ensureAuthenticated,teachers_controllers.deleteteacherprofile);
 
-router.get('/addteacher',teachers_controllers.addteacherprofile);
-router.post('/addteacher',teacher.single('propic'),teachers_controllers.teacherdataupload);
-router.post('/update/:id',teacher.single('propic'),teachers_controllers.updateteacher);
+router.get('/addteacher', ensureAuthenticated,teachers_controllers.addteacherprofile);
+router.post('/addteacher',ensureAuthenticated, teacher.single('propic'), teachers_controllers.teacherdataupload);
+router.post('/update/:id', ensureAuthenticated,teacher.single('propic'), teachers_controllers.updateteacher);
 
 module.exports = router;

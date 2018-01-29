@@ -90,24 +90,12 @@
             <div class="form-group">
               <label class="col-md-4 control-label">Course</label>
               <div class="col-md-4">
-                <!-- <input name="batch" type="text" placeholder="2013" class="form-control input-md"> -->
-                <select id="selectId" name="batch" class="form-control">
-                <!-- <%for (var batch in batches) {%>
-                  <option value="<%=batches[batch].batch%>"><%=batches[batch].batch%></option>
-                <%}%> -->
-
+                <select id="selectId" name="coursename" class="form-control">
                 </select>
               </div>
             </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label">Course Name</label>
-              <div class="col-md-4">
-                <input name="coursename" type="text" placeholder="Course Name" class="form-control input-md">
-
-              </div>
-            </div>
+          
 
 
             <!-- Appended Input-->
@@ -252,7 +240,7 @@
           // type: 'POST',
           contentType: 'application/json; charset=utf-8',
           success: function(data) {
-          //  console.log(data);
+            //  console.log(data);
             // var option = $('<option></option>').attr("value", "option value").text("Text");
             // var option2 = $('<option></option>').attr("value", "option value").text("Text2");
             var $el = $("#selectId");
