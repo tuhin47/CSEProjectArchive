@@ -31,7 +31,7 @@ var teacher = multer({
 
 
 
-
+router.get('/',teachers_controllers.findteacher);
 router.get('/findteachers',teachers_controllers.findteacher);
 router.get('/profile/:id',teachers_controllers.teacherprofile);
 router.get('/edit/:id',teachers_controllers.editteacherprofile);

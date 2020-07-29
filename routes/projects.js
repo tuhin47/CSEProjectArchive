@@ -12,12 +12,12 @@ router.get('/', Projects.findProjects);
 router.get('/tags/:tag', Projects.findTagProjects);
 
 router.get('/coursename', function(req, res) {
-  console.log(req.param('batch'));
+  
   Courses.find({
     batch: req.param('batch')
   }, function(err, option) {
     if (err) throw err;
-    //console.log(option);
+    //
     res.send(option);
   });
   //res.send("data sent correctly " + req.param('batch'));
@@ -37,7 +37,7 @@ function ensureAuthenticated(req, res, next) {
 router.get('/add', ensureAuthenticated, function(req, res) {
   Teachers.find({}, function(err, teachers) {
     if (err) throw err;
-    //console.log(results);
+    //
     Batches.find({}, function(err, batches) {
       if (err) throw err;
       else
@@ -73,8 +73,8 @@ var upload = multer({
 });
 
 router.post('/test', upload.single('img'), function(req, res, err) {
-  if (err) console.log(err);
-  console.log("==================");
+  if (err) 
+  
   res.redirect('/');
 });
 */

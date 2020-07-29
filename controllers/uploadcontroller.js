@@ -20,13 +20,13 @@ function parsingGitorLinkin(input) {
     if (input.charAt(i) === '/') break;
     else output += input.charAt(i);
   }
-  console.log(output);
+  
   return output;
 }
 
 exports.dataUpload = function(req, res, next) {
   // gfs = Grid(conn.db);
-  console.log('---------------------------->>>>in upload/data post');
+  
   var reg = req.body.reg;
   var name = req.body.name;
   var email = req.body.email;
@@ -38,14 +38,11 @@ exports.dataUpload = function(req, res, next) {
     propic = req.session.img;
 
   }
-  if (req.session.img)
-    console.log("***************************" + req.session.img);
-  else console.log("=========================");
-  console.log("before DB");
+  
   Users.find({
     reg: reg,
   }, function(err, results) {
-    console.log(results);
+    
     if (err) return console.error(err);
     else if (results.length > 0 && results[0].reg == reg) {
       res.send("Already Exist");
@@ -65,7 +62,7 @@ exports.dataUpload = function(req, res, next) {
 
       user.save(function(err, results) {
         if (err) console.log(err);
-        console.log(results._id);
+        
         res.redirect("/adduser");
       });
     }
@@ -80,7 +77,7 @@ exports.dataUpload = function(req, res, next) {
 //     filename: req.params.filename
 //   });
 //   readstream.on("error", function(err) {
-//     console.log("No image found with that title");
+//     
 //   });
 //   readstream.pipe(res);
 // };

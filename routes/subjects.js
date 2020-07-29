@@ -6,7 +6,7 @@ var Projects = require('../models/project');
 router.get('/', function(req, res, next) {
   Projects.find({}, function(err, results) {
     if (err) throw err;
-    console.log(results);
+    
     res.render('subjects', {
       results: results
     });

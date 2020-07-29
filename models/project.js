@@ -29,6 +29,6 @@ var Projects = module.exports = mongoose.model('Projects', ProjectSchema);
 //
 // project.save(function(err, results) {
 //   if(err) console.error(err);
-//   console.log(results);
+//   
 //   if (err) throw err;
 // });

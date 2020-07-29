@@ -6,7 +6,7 @@ exports.findProjects = function(req, res) {
   Projects.find({}, function(err, results) {
     if (err) return console.error(err);
     else if (results.length >= 0) {
-      console.log(results);
+      
       res.render('recentProjects', {
         results: results
       });
@@ -23,8 +23,8 @@ exports.findTagProjects = function(req, res) {
   }, function(err, results) {
     if (err) return console.error(err);
     else if (results.length >= 0) {
-      console.log("in teacherprofile");
-      console.log(results);
+      
+      
       res.render('recentProjects', {
         results: results
       });
@@ -62,7 +62,7 @@ exports.showProject = function(req, res, next) {
 
           if (err) throw err;
 
-          console.log(supervisor);
+          
           res.render('project', {
             results: results,
             members: members,
@@ -72,7 +72,7 @@ exports.showProject = function(req, res, next) {
 
 
       });
-      // console.log(users);
+      // 
 
     });
 };
@@ -87,20 +87,20 @@ exports.addproject = function(req, res, next) {
   var teammembers = [];
   var supervisorId = req.body.supervisor;
   var tags = [];
-  console.log("=========================================");
-  //console.log(supervisor);
+  
+  //
   for (var i = 0; i < 100; i++) {
     var temp = 'field' + i;
     if (req.body[temp]) {
       teammembers.push(req.body[temp]);
-      // console.log(req.body[temp]);
+      // 
     }
   }
   for (i = 0; i < 100; i++) {
     var temp1 = 'tag' + i;
     if (req.body[temp1]) {
       tags.push(req.body[temp1]);
-      // console.log(req.body[temp]);
+      // 
     }
   }
   var project = new Projects({
@@ -117,7 +117,7 @@ exports.addproject = function(req, res, next) {
   project.save(function(err, results) {
     if (err) console.error(err);
     if (err) throw err;
-    console.log(results);
+    
     res.redirect("/");
   });
 

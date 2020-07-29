@@ -252,13 +252,13 @@
           // type: 'POST',
           contentType: 'application/json; charset=utf-8',
           success: function(data) {
-          //  console.log(data);
+          //  
             // var option = $('<option></option>').attr("value", "option value").text("Text");
             // var option2 = $('<option></option>').attr("value", "option value").text("Text2");
             var $el = $("#selectId");
             $el.empty(); // remove old options
             $.each(data, function(key, value) {
-              console.log(value);
+              
               $el.append($("<option></option>")
                 .attr("value", value.courseTitle).text(value.courseTitle));
             });
