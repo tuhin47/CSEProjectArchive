@@ -36,10 +36,10 @@ var teachers = require('./routes/teachers');
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
-mongoose.connect('mongodb://localhost/cseprojects', {
-  useMongoClient: true
-});
-var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/cseprojects', {
+//   useMongoClient: true
+// });
+// var db = mongoose.connection;
 
 
 var app = express();

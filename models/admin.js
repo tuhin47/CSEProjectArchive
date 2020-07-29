@@ -19,6 +19,7 @@ module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
 	    bcrypt.hash(newUser.password, salt,null, function(err, hash) {
 				if(err) throw err;
+			console.log(newUser.password,hash);
 	        newUser.password = hash;
 	        newUser.save(callback);
 	    });
