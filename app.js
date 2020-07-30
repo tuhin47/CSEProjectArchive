@@ -8,6 +8,8 @@ var session = require('express-session');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var url = require('url');
+const dotenv = require('dotenv');
+dotenv.config();
 //var sleep=require('sleep');
 var passport = require('passport');
 var fs = require('fs');
@@ -36,10 +38,9 @@ var teachers = require('./routes/teachers');
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
-// mongoose.connect('mongodb://localhost/cseprojects', {
-//   useMongoClient: true
-// });
-// var db = mongoose.connection;
+console.log('Mongo =',`${process.env.API_KEY}`);
+mongoose.connect(`${process.env.API_KEY}`,{useMongoClient:true});
+var db = mongoose.connection;
 
 
 var app = express();

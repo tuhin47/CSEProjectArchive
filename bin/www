@@ -17,7 +17,7 @@ app.set('port', port);
 
 console.log("Port: "+port);
 console.log('----------Go to----------');
-console.log('localhost:'+port);
+console.log('http://localhost:'+port);
 /**
  * Create HTTP server.
  */
