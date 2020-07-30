@@ -38,8 +38,8 @@ var teachers = require('./routes/teachers');
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
-console.log('Mongo =',`${process.env.API_KEY}`);
-mongoose.connect(`${process.env.API_KEY}`,{useMongoClient:true});
+console.log('Mongo =',`${process.env.MONGO_CREDENTIAL}`);
+mongoose.connect(`mongodb://${process.env.MONGO_CREDENTIAL}@cseprojectarchive-shard-00-00.mr6v5.gcp.mongodb.net:27017,cseprojectarchive-shard-00-01.mr6v5.gcp.mongodb.net:27017,cseprojectarchive-shard-00-02.mr6v5.gcp.mongodb.net:27017/cseprojects?ssl=true&replicaSet=atlas-jfxyvr-shard-0&authSource=admin&retryWrites=true&w=majority`,{useMongoClient:true});
 var db = mongoose.connection;
 
 
