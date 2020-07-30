@@ -11,7 +11,8 @@ exports.findteacher = function(req, res) {
       
       
       res.render('findteachers', {
-        results: results
+        results: results,
+        page:"teachers"
       });
     }
 
