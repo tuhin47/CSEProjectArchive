@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
     if (err) throw err;
     
     res.render('subjects', {
-      results: results
+      results: results,
+      page:'subjects'
     });
   });
 });

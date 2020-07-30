@@ -8,7 +8,9 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/index', function(req, res, next) {
-  res.render('index');
+  res.render('index',{
+    page:"home"
+  });
 });
 
 router.get('/table', function(req, res, next) {

@@ -8,7 +8,8 @@ exports.findProjects = function(req, res) {
     else if (results.length >= 0) {
       
       res.render('recentProjects', {
-        results: results
+        results: results,
+        page:"projects"
       });
     }
 

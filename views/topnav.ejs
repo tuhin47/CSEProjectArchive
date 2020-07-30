@@ -3,11 +3,11 @@
       <h1><a href="#"></a></h1>
       <nav>
         <ul>
-          <li class="current"><a href="/index" class="m1">Home Page</a></li>
-          <li><a href="/subjects" class="m2">Subjects</a></li>
-          <li><a href="/batches" class="m3">Batches</a></li>
-          <li><a href="/projects" class="m4">Projects</a></li>
-          <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+          <li <% if(typeof page != 'undefined' && page == "home" ){%> class="current" <% } %> ><a href="/index" class="m1">Home Page</a></li>
+          <li <% if(typeof page != 'undefined' && page == "subjects" ){%> class="current" <% } %> ><a href="/subjects" class="m2">Subjects</a></li>
+          <li <% if(typeof page != 'undefined' && page == "batches" ){%> class="current" <% } %> ><a href="/batches" class="m3">Batches</a></li>
+          <li <% if(typeof page != 'undefined' && page == "projects" ){%> class="current" <% } %> ><a href="/projects" class="m4">Projects</a></li>
+          <li <% if(typeof page != 'undefined' && page == "contact" ){%> class="current" <% } %> class="last"><a href="/contact" class="m5">Contact Us</a></li>
         </ul>
       </nav>
     </div>
