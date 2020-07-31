@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%include header.ejs%>
+<body id="page1">
+  <div class="wrap">
+    <%include topnav.ejs%>
+    <div class="container">
+      <%include partials/leftsidebar.ejs%>
+      <section id="content" style=" width: 750px;">
+        <div class="widget-box">
+            <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+              <h2>Students table</h2>
+            </div>
+            <div class="widget-content nopadding">
+              <table id="table" class="display" >
+                <thead>
+                  <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Emial</th>
+                    <th>git</th>
+                    <th>LinkedIn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0;i<results.length;i++){ %>
+                    <tr>
+                      <td>
+                        <a href="/students/<%= results[i].reg %>">
+                        <%=results[i].reg%>
+                        </a>
+                      </td>
+                      <td>
+                          <a href="/students/<%= results[i].reg %>">
+                        <%= results[i].name %>
+                        </a>
+                      </td>
+                      <td>
+                        <%= results[i].email %>
+                      </td>
+                      <td>
+                        <%= results[i].git %>
+                      </td>
+          
+                      <td>
+                        <%= results[i].linkedin %>
+                      </td>
+                    </tr>
+          
+                    <%}%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+          <script>
+            $(document).ready(function() {
+              $('#table').DataTable();
+          } );
+          </script>
+      </section>
+    </div>
+    <%include footer.ejs%>
+  </div>
+</body>
+
+</html>

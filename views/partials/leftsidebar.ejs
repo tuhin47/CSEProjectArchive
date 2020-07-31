@@ -2,11 +2,12 @@
     <h3>Categories</h3>
     <ul class="categories">
       <li><span><a <% if(typeof page != 'undefined' && page == "home" ){%> id="selected" <% } %>  href="/index">Home</a></span></li>
-      <li><span><a <% if(typeof page != 'undefined' && page == "subjects" ){%> id="selected" <% } %> href="/subjects">Subjects</a></span></li>
-      <li><span><a <% if(typeof page != 'undefined' && page == "batches" ){%> id="selected" <% } %> href="/batches">Batches</a></span></li>
+      <li><span><a <% if(typeof page != 'undefined' && page == "teachers" ){%> id="selected" <% } %> href="/teachers/findteachers">Teachers</a></span></li>
+      <li><span><a <% if(typeof page != 'undefined' && page == "students" ){%> id="selected" <% } %> href="/teachers">Students</a></span></li>
+      <!-- <li><span><a <% if(typeof page != 'undefined' && page == "subjects" ){%> id="selected" <% } %> href="/subjects">Subjects</a></span></li> -->
+      <!-- <li><span><a <% if(typeof page != 'undefined' && page == "batches" ){%> id="selected" <% } %> href="/batches">Batches</a></span></li> -->
       <li><span><a <% if(typeof page != 'undefined' && page == "projects" ){%> id="selected" <% } %> href="/projects">All projects</a></span></li>
       <!-- <li><span><a href="/students">Student Info</a></span></li> -->
-      <li><span><a <% if(typeof page != 'undefined' && page == "teachers" ){%> id="selected" <% } %> href="/teachers/findteachers">Teachers</a></span></li>
       <li><span><a data-toggle="modal" href="demopic#myModal">Login</a></span></li>
       <!-- <li class="last"><span><a href="/contact">About Us</a></span></li> -->
     </ul>

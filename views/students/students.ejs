@@ -1,41 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>Info</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/students.css" type="text/css" media="all">
-
-  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-  <script type="text/javascript" src="js/cufon-yui.js"></script>
-  <script type="text/javascript" src="js/cufon-replace.js"></script>
-  <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
-  <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
-
-</head>
-
+<%include header.ejs%>
 <body id="page1">
-  <!-- START PAGE SOURCE -->
   <div class="wrap">
     <%include topnav.ejs%>
     <div class="container">
-      <aside>
-        <h3>Categories</h3>
-        <ul class="categories">
-          <li><span><a href="/index">Home</a></span></li>
-          <li><span><a  href="/subjects">Subjects</a></span></li>
-          <li><span><a href="/batches">Batches</a></span></li>
-          <li><span><a href="/projects">All projects</a></span></li>
-          <li><span><a href="/students">Student Info</a></span></li>
-          <li><span><a href="/teachers">Teachers</a></span></li>
-          <li><span><a href="/admin">Administrators</a></span></li>
-          <!-- <li class="last"><span><a href="/contact">About Us</a></span></li> -->
-        </ul>
-      </aside>
+      <%include partials/leftsidebar.ejs%>
       <div class="multiple-borders">
         <%if(results[0].propic){%>
           <img src="profile/<%=results[0].propic%>" />
@@ -93,23 +64,9 @@
         </table>
 
       </section>
-
-
     </div>
+    <%include footer.ejs%>
   </div>
-  <footer>
-    <div class="footerlink">
-      <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
-      <p class="rf">Design by <a href="#">SUST</a></p>
-      <div style="clear:both;"></div>
-    </div>
-  </footer>
-  <script type="text/javascript">
-    Cufon.now();
-  </script>
-
-
-  <!-- END PAGE SOURCE -->
 </body>
 
 </html>

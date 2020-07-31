@@ -1,9 +1,9 @@
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-    <h5>Our Honourable Teachers</h5>
+    <h2>Our Honourable Teachers</h2>
   </div>
   <div class="widget-content nopadding">
-    <table class="table table-bordered data-table">
+    <table id="teachers" class="table table-bordered data-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -38,15 +38,13 @@
     </table>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#teachers').DataTable();
+} );
 </script>
-<script src="extra/jquery.min.js"></script>
-<script src="extra/jquery.ui.custom.js"></script>
-<script src="extra/bootstrap.min.js"></script>
-<script src="extra/jquery.uniform.js"></script>
-<script src="extra/select2.min.js"></script>
-<script src="extra/jquery.dataTables.min.js"></script>
-<script src="extra/matrix.js"></script>
-<script src="extra/matrix.tables.js"></script>
 
 
 <ul class="typeahead dropdown-menu"></ul>
