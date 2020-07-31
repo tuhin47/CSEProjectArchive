@@ -1,6 +1,6 @@
 # CSE Project Archive
 
-This project is based on **Nodejs** and **NoSQL**. For Backend: **Express**, Frontend: **EJS** and Database: **MongoDB** are beign used.
+This project is based on **Nodejs** and **NoSQL**. For Backend: **Express**, Frontend: **EJS** and Database: **MongoDB** are being used.
 
 ## Getting started
 
