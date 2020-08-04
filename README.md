@@ -4,7 +4,7 @@ This project is based on **Nodejs** and **NoSQL**. For Backend: **Express**, Fro
 
 ## Getting started
 
-To get the Node server running locally:
+To get the Node server running:
 
 - Clone this repo
 - ```npm install``` to install all required dependencies
